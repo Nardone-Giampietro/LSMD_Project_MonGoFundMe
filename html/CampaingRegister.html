@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Campaign Registration</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-campaing-register">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="CampaingRegister.html" class="active">Create Campaign</a>
+      <a href="OrganizationDashboard.html">Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="layout">
+    <div class="column">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Main campaign details</h2>
+            <p>Essential registration form fields.</p>
+          </div>
+        </div>
+
+        <form class="form-grid">
+          <div class="grid-2">
+            <div class="field">
+              <label for="campaignTitle">Campaign title</label>
+              <input id="campaignTitle" type="text" value="Mobile STEM Lab for Underserved Schools" placeholder="Enter the campaign title" />
+            </div>
+
+            <div class="field">
+              <label for="campaignCity">Campaign city</label>
+              <input id="campaignCity" type="text" value="Pisa" placeholder="Enter the city" />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="campaignTarget">Funding goal</label>
+              <input id="campaignTarget" type="number" min="1" step="100" value="25000" placeholder="Enter the funding goal" />
+            </div>
+
+            <div class="field">
+              <label for="campaignDuration">Fundraising duration</label>
+              <select id="campaignDuration">
+                <option>30 days</option>
+                <option selected>45 days</option>
+                <option>60 days</option>
+                <option>90 days</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="campaignDescription">Campaign description</label>
+            <textarea id="campaignDescription" placeholder="Describe the purpose, expected impact, and use of funds...">The campaign funds a mobile STEM laboratory intended for underserved schools with limited access to technological equipment, educational kits, and specialized tutors.</textarea>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Tag selection</h2>
+            <p>The campaign requires exactly 3 associated tags.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="selection-bar">
+            <strong id="tagCounter">3/3 tags selected</strong>
+            <span>Exactly three tags are allowed for campaign classification.</span>
+          </div>
+
+          <div class="tag-grid">
+            <label class="tag-option">
+              <input type="checkbox" class="tag-checkbox" checked />
+              <span class="tag-label">Education</span>
+            </label>
+            <label class="tag-option">
+              <input type="checkbox" class="tag-checkbox" checked />
+              <span class="tag-label">Enviroment</span>
+            </label>
+            <label class="tag-option">
+              <input type="checkbox" class="tag-checkbox" checked />
+              <span class="tag-label">Healthcare</span>
+            </label>
+            <label class="tag-option">
+              <input type="checkbox" class="tag-checkbox" />
+              <span class="tag-label">Community</span>
+            </label>
+            <label class="tag-option">
+              <input type="checkbox" class="tag-checkbox" />
+              <span class="tag-label">Technology</span>
+            </label>
+            <label class="tag-option">
+              <input type="checkbox" class="tag-checkbox" />
+              <span class="tag-label">Sports</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Optional milestones</h2>
+            <p>Each milestone includes a description and target amount. You can add up to 50 milestones.</p>
+          </div>
+          <button type="button" id="addMilestoneButton" class="button button-secondary">Add milestone</button>
+        </div>
+
+        <div class="milestone-list">
+          <article class="milestone-card" data-milestone="1">
+            <div class="milestone-top">
+              <strong>Milestone 1</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="grid-2">
+              <div class="field">
+                <label>Milestone description</label>
+                <textarea placeholder="Describe the milestone...">Purchase of 10 basic educational robotics kits and 2 entry-level 3D printers.</textarea>
+              </div>
+              <div class="field">
+                <label>Target amount</label>
+                <input type="number" min="1" step="100" value="8000" placeholder="Enter the milestone target amount" />
+              </div>
+            </div>
+            <div class="milestone-actions">
+              <button type="button" class="button button-danger remove-milestone">Remove milestone</button>
+            </div>
+          </article>
+
+          <article class="milestone-card hidden" data-milestone="2">
+            <div class="milestone-top">
+              <strong>Milestone 2</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="grid-2">
+              <div class="field">
+                <label>Milestone description</label>
+                <textarea placeholder="Describe the milestone...">Setup of the laboratory van with mobile workstations, technical cabinets, and support materials.</textarea>
+              </div>
+              <div class="field">
+                <label>Target amount</label>
+                <input type="number" min="1" step="100" value="15000" placeholder="Enter the milestone target amount" />
+              </div>
+            </div>
+            <div class="milestone-actions">
+              <button type="button" class="button button-danger remove-milestone">Remove milestone</button>
+            </div>
+          </article>
+
+          <article class="milestone-card hidden" data-milestone="3">
+            <div class="milestone-top">
+              <strong>Milestone 3</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="grid-2">
+              <div class="field">
+                <label>Milestone description</label>
+                <textarea placeholder="Describe the milestone...">Launch of activities in 5 schools with dedicated tutors and a scheduled intervention calendar.</textarea>
+              </div>
+              <div class="field">
+                <label>Target amount</label>
+                <input type="number" min="1" step="100" value="25000" placeholder="Enter the milestone target amount" />
+              </div>
+            </div>
+            <div class="milestone-actions">
+              <button type="button" class="button button-danger remove-milestone">Remove milestone</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Optional rewards</h2>
+            <p>You can define up to 120 rewards. Each reward requires a title, description, and associated fixed amount.</p>
+          </div>
+          <button type="button" id="addRewardButton" class="button button-secondary">Add reward</button>
+        </div>
+
+        <div class="reward-list">
+          <article class="reward-card" data-reward="1">
+            <div class="reward-top">
+              <strong>Reward 1</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="form-grid">
+              <div class="grid-2">
+                <div class="field">
+                  <label>Reward title</label>
+                  <input type="text" value="Digital Supporter" placeholder="Enter the reward title" />
+                </div>
+                <div class="field">
+                  <label>Associated fixed amount</label>
+                  <input type="number" min="1" step="5" value="25" placeholder="Enter the fixed amount" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Reward description</label>
+                <textarea placeholder="Describe the reward...">Personalized thank-you email and a digital project supporter badge.</textarea>
+              </div>
+            </div>
+            <div class="reward-actions">
+              <button type="button" class="button button-danger remove-reward">Remove reward</button>
+            </div>
+          </article>
+
+          <article class="reward-card hidden" data-reward="2">
+            <div class="reward-top">
+              <strong>Reward 2</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="form-grid">
+              <div class="grid-2">
+                <div class="field">
+                  <label>Reward title</label>
+                  <input type="text" value="Supporter Kit" placeholder="Enter the reward title" />
+                </div>
+                <div class="field">
+                  <label>Associated fixed amount</label>
+                  <input type="number" min="1" step="5" value="75" placeholder="Enter the fixed amount" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Reward description</label>
+                <textarea placeholder="Describe the reward...">Campaign tote bag, STEM stickers, and mention on the supporters page.</textarea>
+              </div>
+            </div>
+            <div class="reward-actions">
+              <button type="button" class="button button-danger remove-reward">Remove reward</button>
+            </div>
+          </article>
+
+          <article class="reward-card hidden" data-reward="3">
+            <div class="reward-top">
+              <strong>Reward 3</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="form-grid">
+              <div class="grid-2">
+                <div class="field">
+                  <label>Reward title</label>
+                  <input type="text" value="Opening Event Invitation" placeholder="Enter the reward title" />
+                </div>
+                <div class="field">
+                  <label>Associated fixed amount</label>
+                  <input type="number" min="1" step="5" value="150" placeholder="Enter the fixed amount" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Reward description</label>
+                <textarea placeholder="Describe the reward...">Access to the mobile laboratory presentation event and a guided visit.</textarea>
+              </div>
+            </div>
+            <div class="reward-actions">
+              <button type="button" class="button button-danger remove-reward">Remove reward</button>
+            </div>
+          </article>
+
+          <article class="reward-card hidden" data-reward="4">
+            <div class="reward-top">
+              <strong>Reward 4</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="form-grid">
+              <div class="grid-2">
+                <div class="field">
+                  <label>Reward title</label>
+                  <input type="text" value="Dedicated Workshop" placeholder="Enter the reward title" />
+                </div>
+                <div class="field">
+                  <label>Associated fixed amount</label>
+                  <input type="number" min="1" step="5" value="250" placeholder="Enter the fixed amount" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Reward description</label>
+                <textarea placeholder="Describe the reward...">Participation in an exclusive workshop with a practical demonstration of STEM activities.</textarea>
+              </div>
+            </div>
+            <div class="reward-actions">
+              <button type="button" class="button button-danger remove-reward">Remove reward</button>
+            </div>
+          </article>
+
+          <article class="reward-card hidden" data-reward="5">
+            <div class="reward-top">
+              <strong>Reward 5</strong>
+              <span class="meta-pill">Active</span>
+            </div>
+            <div class="form-grid">
+              <div class="grid-2">
+                <div class="field">
+                  <label>Reward title</label>
+                  <input type="text" value="Supporting Partner" placeholder="Enter the reward title" />
+                </div>
+                <div class="field">
+                  <label>Associated fixed amount</label>
+                  <input type="number" min="1" step="5" value="500" placeholder="Enter the fixed amount" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Reward description</label>
+                <textarea placeholder="Describe the reward...">Logo displayed among the main supporters and dedicated mention in presentation materials.</textarea>
+              </div>
+            </div>
+            <div class="reward-actions">
+              <button type="button" class="button button-danger remove-reward">Remove reward</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Final actions</h2>
+            <p>Review campaign details before publishing.</p>
+          </div>
+        </div>
+
+        <div class="cta-row u-mt-16 u-justify-end">
+          <button type="submit" class="button button-primary">Publish campaign</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script>
+  const MAX_MILESTONES = 50;
+  const MAX_REWARDS = 120;
+  const tagCheckboxes = document.querySelectorAll('.tag-checkbox');
+  const tagCounter = document.getElementById('tagCounter');
+  const addMilestoneButton = document.getElementById('addMilestoneButton');
+  const milestoneList = document.querySelector('.milestone-list');
+  const milestonePlaceholder = document.getElementById('milestonePlaceholder');
+  const previewMilestones = document.getElementById('previewMilestones');
+
+  const addRewardButton = document.getElementById('addRewardButton');
+  const rewardList = document.querySelector('.reward-list');
+  const rewardPlaceholder = document.getElementById('rewardPlaceholder');
+
+  function updateTagCounter() {
+    const selected = Array.from(tagCheckboxes).filter((checkbox) => checkbox.checked).length;
+    tagCounter.textContent = `${selected}/3 tags selected`;
+  }
+
+  tagCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      const selected = Array.from(tagCheckboxes).filter((item) => item.checked);
+      if (selected.length > 3) {
+        checkbox.checked = false;
+      }
+      updateTagCounter();
+    });
+  });
+
+  function updateMilestoneState() {
+    const milestoneCards = document.querySelectorAll('.milestone-card');
+    const visibleMilestones = Array.from(milestoneCards).filter((card) => !card.classList.contains('hidden')).length;
+    if (previewMilestones) {
+      previewMilestones.textContent = visibleMilestones;
+    }
+    if (milestonePlaceholder) {
+      milestonePlaceholder.classList.toggle('hidden', visibleMilestones >= MAX_MILESTONES);
+    }
+    addMilestoneButton.disabled = visibleMilestones >= MAX_MILESTONES;
+    addMilestoneButton.style.opacity = visibleMilestones >= MAX_MILESTONES ? '0.55' : '1';
+    addMilestoneButton.style.cursor = visibleMilestones >= MAX_MILESTONES ? 'not-allowed' : 'pointer';
+    addMilestoneButton.textContent = visibleMilestones >= MAX_MILESTONES ? 'Milestone limit reached' : 'Add milestone';
+  }
+
+  function createMilestoneCard(number) {
+    const article = document.createElement('article');
+    article.className = 'milestone-card';
+    article.dataset.milestone = String(number);
+    article.innerHTML = `
+      <div class="milestone-top">
+        <strong>Milestone ${number}</strong>
+        <span class="meta-pill">Active</span>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Milestone description</label>
+          <textarea placeholder="Describe the milestone..."></textarea>
+        </div>
+        <div class="field">
+          <label>Target amount</label>
+          <input type="number" min="1" step="100" placeholder="Enter the milestone target amount" />
+        </div>
+      </div>
+      <div class="milestone-actions">
+        <button type="button" class="button button-danger remove-milestone">Remove milestone</button>
+      </div>
+    `;
+    return article;
+  }
+
+  addMilestoneButton.addEventListener('click', () => {
+    const milestoneCards = document.querySelectorAll('.milestone-card');
+    const visibleMilestones = Array.from(milestoneCards).filter((card) => !card.classList.contains('hidden')).length;
+    if (visibleMilestones >= MAX_MILESTONES) return;
+
+    const nextHidden = Array.from(milestoneCards).find((card) => card.classList.contains('hidden'));
+    if (nextHidden) {
+      nextHidden.classList.remove('hidden');
+    } else {
+      milestoneList.appendChild(createMilestoneCard(milestoneCards.length + 1));
+    }
+    updateMilestoneState();
+  });
+
+  milestoneList.addEventListener('click', (event) => {
+    const button = event.target.closest('.remove-milestone');
+    if (button) {
+      const milestoneCard = button.closest('.milestone-card');
+      milestoneCard.classList.add('hidden');
+      updateMilestoneState();
+    }
+  });
+
+  function updateRewardState() {
+    const rewardCards = document.querySelectorAll('.reward-card');
+    const visibleRewards = Array.from(rewardCards).filter((card) => !card.classList.contains('hidden')).length;
+    if (rewardPlaceholder) {
+      rewardPlaceholder.classList.toggle('hidden', visibleRewards >= MAX_REWARDS);
+    }
+    addRewardButton.disabled = visibleRewards >= MAX_REWARDS;
+    addRewardButton.style.opacity = visibleRewards >= MAX_REWARDS ? '0.55' : '1';
+    addRewardButton.style.cursor = visibleRewards >= MAX_REWARDS ? 'not-allowed' : 'pointer';
+    addRewardButton.textContent = visibleRewards >= MAX_REWARDS ? 'Reward limit reached' : 'Add reward';
+  }
+
+  function createRewardCard(number) {
+    const article = document.createElement('article');
+    article.className = 'reward-card';
+    article.dataset.reward = String(number);
+    article.innerHTML = `
+      <div class="reward-top">
+        <strong>Reward ${number}</strong>
+        <span class="meta-pill">Active</span>
+      </div>
+      <div class="form-grid">
+        <div class="grid-2">
+          <div class="field">
+            <label>Reward title</label>
+            <input type="text" placeholder="Enter the reward title" />
+          </div>
+          <div class="field">
+            <label>Associated fixed amount</label>
+            <input type="number" min="1" step="5" placeholder="Enter the fixed amount" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Reward description</label>
+          <textarea placeholder="Describe the reward..."></textarea>
+        </div>
+      </div>
+      <div class="reward-actions">
+        <button type="button" class="button button-danger remove-reward">Remove reward</button>
+      </div>
+    `;
+    return article;
+  }
+
+  addRewardButton.addEventListener('click', () => {
+    const rewardCards = document.querySelectorAll('.reward-card');
+    const visibleRewards = Array.from(rewardCards).filter((card) => !card.classList.contains('hidden')).length;
+    if (visibleRewards >= MAX_REWARDS) return;
+
+    const nextHidden = Array.from(rewardCards).find((card) => card.classList.contains('hidden'));
+    if (nextHidden) {
+      nextHidden.classList.remove('hidden');
+    } else {
+      rewardList.appendChild(createRewardCard(rewardCards.length + 1));
+    }
+    updateRewardState();
+  });
+
+  rewardList.addEventListener('click', (event) => {
+    const button = event.target.closest('.remove-reward');
+    if (button) {
+      const rewardCard = button.closest('.reward-card');
+      rewardCard.classList.add('hidden');
+      updateRewardState();
+    }
+  });
+
+  updateTagCounter();
+  updateMilestoneState();
+  updateRewardState();
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

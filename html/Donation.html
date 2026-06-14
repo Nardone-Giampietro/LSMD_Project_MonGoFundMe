@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Donation Page</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-donation">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="Campaign.html">Campaign</a>
+      <a href="DonorDashboard.html">Donor Dashboard</a>
+      <a href="SuggestedCampaigns.html">Suggested Campaigns</a>
+      <a href="Donation.html" class="active">Donation Page</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="Campaign.html" class="button button-secondary">Back to Campaign</a>
+    </div>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="layout">
+    <section class="panel">
+      <div class="eyebrow">Donation Page</div>
+      <h1>Place donation</h1>
+      <p>Complete a donation for the selected public campaign and choose the reward tier to associate with it.</p>
+
+      <div class="campaign-summary">
+        <div class="campaign-thumb" aria-label="Campaign image"></div>
+        <div>
+          <h2>Mobile STEM Lab for Underserved Schools</h2>
+          <p>EduSpark Association. Current progress: EUR 18,500 of EUR 25,000.</p>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+      </div>
+
+      <form class="form-grid">
+        <div class="field">
+          <label>Reward and donation amount</label>
+          <div class="amount-grid">
+            <label class="amount-option">
+              <input type="radio" name="rewardAmount" />
+              <span>Digital Supporter<small>Personalized thank-you email and digital project badge.</small></span>
+              <strong>EUR 25</strong>
+            </label>
+            <label class="amount-option active">
+              <input type="radio" name="rewardAmount" checked />
+              <span>Supporter Kit<small>Campaign tote bag, STEM stickers, and supporter mention.</small></span>
+              <strong>EUR 75</strong>
+            </label>
+            <label class="amount-option">
+              <input type="radio" name="rewardAmount" />
+              <span>Opening Event Invitation<small>Access to the mobile laboratory presentation event.</small></span>
+              <strong>EUR 150</strong>
+            </label>
+            <label class="amount-option">
+              <input type="radio" name="rewardAmount" />
+              <span>Custom donation<small>Support the campaign with a custom amount.</small></span>
+              <input id="customAmount" class="custom-amount" type="number" min="1" placeholder="" />
+            </label>
+          </div>
+        </div>
+
+        <button type="button" class="button button-primary">Place Donation</button>
+      </form>
+    </section>
+
+    <aside class="panel">
+      <h2>Donation summary</h2>
+      <div class="summary-line">
+        <span>Donation</span>
+        <strong>EUR 75</strong>
+      </div>
+      <div class="summary-line">
+        <span>Reward</span>
+        <strong>Supporter Kit</strong>
+      </div>
+      <div class="summary-line">
+        <span>Total</span>
+        <strong>EUR 75</strong>
+      </div>
+
+      <p class="u-mt-18">After placement, the donation appears in the donor dashboard and in the organization campaign donations list.</p>
+    </aside>
+  </div>
+</main>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

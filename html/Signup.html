@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Sign Up</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-signup">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="Campaign.html">Campaign</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="Login.html" class="button button-ghost">Log In</a>
+      <a href="Signup.html" class="button button-primary">Sign Up</a>
+    </div>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="signup-wrap">
+    <section class="form-panel" aria-label="Sign up form">
+      <div class="header-row">
+        <div>
+          <h1>Create your account</h1>
+          <p>Choose your account type and complete the required information to get started.</p>
+        </div>
+        <a href="Login.html" class="login-link">Already have an account? Log In</a>
+      </div>
+
+      <div class="type-switcher" role="tablist" aria-label="Account type selection">
+        <button class="type-button active" data-user-type="donor" type="button">
+          Donor
+          <small>Support campaigns and receive rewards</small>
+        </button>
+        <button class="type-button" data-user-type="entity" type="button">
+          Organization
+          <small>Create campaigns and publish updates</small>
+        </button>
+      </div>
+
+      <form>
+        <div class="section">
+          <div class="section-title">
+            <strong>Account details</strong>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-full">
+              <label for="email">Email</label>
+              <input id="email" type="email" value="mario.rossi@example.com" placeholder="name@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" type="password" value="Password123!" placeholder="Enter password" />
+            </div>
+
+            <div class="field">
+              <label for="confirmPassword">Confirm password</label>
+              <input id="confirmPassword" type="password" value="Password123!" placeholder="Repeat password" />
+            </div>
+          </div>
+        </div>
+
+        <div id="donorSection" class="section">
+          <div class="section-title">
+            <strong>Donor information</strong>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input id="firstName" type="text" value="Mario" placeholder="Enter first name" />
+            </div>
+
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input id="lastName" type="text" value="Rossi" placeholder="Enter last name" />
+            </div>
+
+            <div class="field">
+              <label for="donorCity">City</label>
+              <input id="donorCity" type="text" value="Pisa" placeholder="Enter city" />
+            </div>
+
+            <div class="field">
+              <label for="donorZip">ZIP</label>
+              <input id="donorZip" type="text" value="56127" placeholder="Enter ZIP code" />
+            </div>
+
+            <div class="field-full">
+              <label for="donorStreet">Street</label>
+              <input id="donorStreet" type="text" value="Via Garibaldi 42" placeholder="Enter street and house number" />
+            </div>
+          </div>
+        </div>
+
+        <div id="entitySection" class="section hidden">
+          <div class="section-title">
+            <strong>Organization information</strong>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-full">
+              <label for="legalName">Legal Name</label>
+              <input id="legalName" type="text" value="Fondazione Crescita Digitale" placeholder="Enter legal name" />
+            </div>
+
+            <div class="field">
+              <label for="entityCity">City</label>
+              <input id="entityCity" type="text" value="Milan" placeholder="Enter city" />
+            </div>
+
+            <div class="field">
+              <label for="entityZip">ZIP</label>
+              <input id="entityZip" type="text" value="20121" placeholder="Enter ZIP code" />
+            </div>
+
+            <div class="field-full">
+              <label for="entityStreet">Street</label>
+              <input id="entityStreet" type="text" value="Via Monte Napoleone 18" placeholder="Enter street and house number" />
+            </div>
+
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <button type="button" class="button button-primary">Create account</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<script>
+  const typeButtons = document.querySelectorAll('.type-button');
+  const donorSection = document.getElementById('donorSection');
+  const entitySection = document.getElementById('entitySection');
+  const emailInput = document.getElementById('email');
+
+  function setUserType(userType) {
+    typeButtons.forEach((button) => {
+      button.classList.toggle('active', button.dataset.userType === userType);
+    });
+
+    const isDonor = userType === 'donor';
+    donorSection.classList.toggle('hidden', !isDonor);
+    entitySection.classList.toggle('hidden', isDonor);
+
+    emailInput.value = isDonor
+            ? 'mario.rossi@example.com'
+            : 'info@fondazionecrescitadigitale.org';
+  }
+
+  typeButtons.forEach((button) => {
+    button.addEventListener('click', () => setUserType(button.dataset.userType));
+  });
+
+  setUserType('donor');
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

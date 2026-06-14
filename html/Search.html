@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Search</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-search">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+        <div class="brand-mark">M</div>
+        <div>MonGoFundMe</div>
+      </a>
+
+      <nav class="nav-main" aria-label="Main navigation">
+        <a href="Home.html">Home</a>
+        <a href="Search.html" class="active">Search</a>
+        <a href="Campaign.html">Campaign</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="Login.html" class="button button-secondary">Log In</a>
+        <a href="Signup.html" class="button button-primary">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div class="layout">
+      <aside class="filter-stack">
+        <section class="card">
+          <h2>Search filters</h2>
+          <p>Choose a title, one tag, status, and ordering to refine campaign results.</p>
+
+          <div class="section u-mt-18">
+            <div class="section-title">
+              <strong>Title search</strong>
+              <span>Keywords</span>
+            </div>
+            <div class="field">
+              <label for="campaignTitle">Campaign title</label>
+              <input id="campaignTitle" type="text" value="stem schools" placeholder="Search by title" />
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <strong>Tag filter</strong>
+              <span>Single tag</span>
+            </div>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="campaignTag" checked /><span>Education</span></label>
+              <label class="chip"><input type="radio" name="campaignTag" /><span>STEM</span></label>
+              <label class="chip"><input type="radio" name="campaignTag" /><span>Health</span></label>
+              <label class="chip"><input type="radio" name="campaignTag" /><span>Environment</span></label>
+              <label class="chip"><input type="radio" name="campaignTag" /><span>Culture</span></label>
+              <label class="chip"><input type="radio" name="campaignTag" /><span>Accessibility</span></label>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <strong>Status filter</strong>
+              <span>Campaign status</span>
+            </div>
+            <div class="field">
+              <label for="campaignStatus">Campaign status</label>
+              <select id="campaignStatus">
+                <option>All</option>
+                <option selected>Open</option>
+                <option>Completed</option>
+                <option>Closed</option>
+                <option>Suspended</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <strong>Sorting</strong>
+              <span>End date</span>
+            </div>
+            <div class="field">
+              <label for="sortBy">Sort by</label>
+              <select id="sortBy">
+                <option selected>Nearest deadline</option>
+                <option>Farthest deadline</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button type="button" class="button button-primary">Apply filters</button>
+            <button type="button" class="button button-secondary">Reset filters</button>
+          </div>
+        </section>
+
+      </aside>
+
+      <section class="results-stack">
+        <section class="card">
+          <div class="toolbar">
+            <div>
+              <h2>Search results</h2>
+              <div class="toolbar-meta">4 campaigns found · Status: Open · Sort: nearest deadline</div>
+            </div>
+          </div>
+
+          <div class="result-list u-mt-20">
+            <article class="result-card">
+              <div class="result-image page-search-bg-1">
+                <span class="status-badge">Open</span>
+                <span class="days-badge">12 days</span>
+              </div>
+              <div class="result-body">
+                <div class="result-top">
+                  <div>
+                    <h3>Mobile STEM Lab for Underserved Schools</h3>
+                    <p>EduSpark Association · Pisa · Education campaign with milestones and rewards.</p>
+                  </div>
+                  <span class="percent-pill">74% funded</span>
+                </div>
+                <div class="progress-wrap">
+                  <div class="progress-meta">
+                    <span>EUR 18,500 raised out of EUR 25,000</span>
+                    <span>236 donors</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill progress-width-74"></div></div>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Education</span>
+                  <span class="tag">STEM</span>
+                  <span class="tag">Youth</span>
+                </div>
+                <div class="result-footer">
+                  <div class="result-meta">Deadline: April 27, 2026 · Milestone 2 active</div>
+                  <a href="Campaign.html" class="button button-primary">Open campaign</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="result-card">
+              <div class="result-image page-search-bg-2">
+                <span class="status-badge">Open</span>
+                <span class="days-badge">9 days</span>
+              </div>
+              <div class="result-body">
+                <div class="result-top">
+                  <div>
+                    <h3>Maker Bus for Southern Technical Schools</h3>
+                    <p>Next Skills Foundation · Bari · Traveling robotics and prototyping programs.</p>
+                  </div>
+                  <span class="percent-pill">76% funded</span>
+                </div>
+                <div class="progress-wrap">
+                  <div class="progress-meta">
+                    <span>EUR 30,400 raised out of EUR 40,000</span>
+                    <span>318 donors</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill progress-width-76"></div></div>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Education</span>
+                  <span class="tag">STEM</span>
+                  <span class="tag">Community</span>
+                </div>
+                <div class="result-footer">
+                  <div class="result-meta">Deadline: April 24, 2026 · Rewards active</div>
+                  <a href="Campaign.html" class="button button-primary">Open campaign</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="result-card">
+              <div class="result-image page-search-bg-3">
+                <span class="status-badge">Open</span>
+                <span class="days-badge">15 days</span>
+              </div>
+              <div class="result-body">
+                <div class="result-top">
+                  <div>
+                    <h3>Distributed FabLab for Secondary Schools</h3>
+                    <p>Costruire Digitale Association · Turin · Modular spaces for coding, making, and experimentation.</p>
+                  </div>
+                  <span class="percent-pill">61% funded</span>
+                </div>
+                <div class="progress-wrap">
+                  <div class="progress-meta">
+                    <span>EUR 12,200 raised out of EUR 20,000</span>
+                    <span>141 donors</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill progress-width-61"></div></div>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Education</span>
+                  <span class="tag">Digital</span>
+                  <span class="tag">STEM</span>
+                </div>
+                <div class="result-footer">
+                  <div class="result-meta">Deadline: April 30, 2026 · 2 milestones defined</div>
+                  <a href="Campaign.html" class="button button-primary">Open campaign</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="result-card">
+              <div class="result-image page-search-bg-4">
+                <span class="status-badge">Open</span>
+                <span class="days-badge">21 days</span>
+              </div>
+              <div class="result-body">
+                <div class="result-top">
+                  <div>
+                    <h3>Science Kits for Inclusive School Labs</h3>
+                    <p>Salto Futuro Organization · Florence · Accessible equipment for classroom experiments.</p>
+                  </div>
+                  <span class="percent-pill">83% funded</span>
+                </div>
+                <div class="progress-wrap">
+                  <div class="progress-meta">
+                    <span>EUR 24,900 raised out of EUR 30,000</span>
+                    <span>402 donors</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill progress-width-83"></div></div>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Education</span>
+                  <span class="tag">Accessibility</span>
+                  <span class="tag">STEM</span>
+                </div>
+                <div class="result-footer">
+                  <div class="result-meta">Deadline: May 6, 2026 · Strong profile match</div>
+                  <a href="Campaign.html" class="button button-primary">Open campaign</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="pagination u-mt-18">
+            <a href="#" class="button button-secondary">Page 1</a>
+            <a href="#" class="button button-secondary">Page 2</a>
+            <a href="#" class="button button-secondary">Page 3</a>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

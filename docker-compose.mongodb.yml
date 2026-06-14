@@ -1,0 +1,41 @@
+services:
+  mongo1:
+    image: mongo:7.0
+    container_name: mongofundme-mongo1
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - "27017:27017"
+      - "27018:27018"
+      - "27019:27019"
+    volumes:
+      - mongofundme_mongo1_data:/data/db
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --host localhost:27017 --eval 'db.adminCommand({ ping: 1 }).ok' | grep -q 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  mongo2:
+    image: mongo:7.0
+    container_name: mongofundme-mongo2
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    network_mode: "service:mongo1"
+    depends_on:
+      - mongo1
+    volumes:
+      - mongofundme_mongo2_data:/data/db
+
+  mongo3:
+    image: mongo:7.0
+    container_name: mongofundme-mongo3
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    network_mode: "service:mongo1"
+    depends_on:
+      - mongo1
+    volumes:
+      - mongofundme_mongo3_data:/data/db
+
+volumes:
+  mongofundme_mongo1_data:
+  mongofundme_mongo2_data:
+  mongofundme_mongo3_data:

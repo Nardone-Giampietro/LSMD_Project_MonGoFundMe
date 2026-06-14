@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Donor Dashboard</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-donor-dashboard">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="Campaign.html">Campaign</a>
+      <a href="DonorDashboard.html" class="active">Donor Dashboard</a>
+      <a href="SuggestedCampaigns.html">Suggested Campaigns</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="dashboard-stack">
+    <section class="panel" aria-label="Donor profile">
+      <div class="section-title">
+        <div>
+          <h2>Donor profile</h2>
+        </div>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-item">
+          <span>Name</span>
+          <strong>Mario</strong>
+        </div>
+        <div class="profile-item">
+          <span>Last Name</span>
+          <strong>Rossi</strong>
+        </div>
+        <div class="profile-item">
+          <span>Email</span>
+          <strong>mario.rossi@example.com</strong>
+        </div>
+        <div class="profile-item">
+          <span>Address</span>
+          <strong>Via Garibaldi 42, 56127 Pisa</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <h2>My donations</h2>
+          <p>Donations ordered from the most recent to the oldest.</p>
+        </div>
+        <a href="SuggestedCampaigns.html" class="button button-primary">See suggested campaigns</a>
+      </div>
+
+      <div class="donation-list" id="donationList">
+        <article class="donation-item" data-time="10:42 AM" data-reward-title="Opening Event Invitation" data-delivery-address="Via Garibaldi 42, 56127 Pisa (PI)" data-email="mario.rossi@example.com">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Mobile STEM Lab for Underserved Schools</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 150</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>April 16, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-pending">Pending</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-success complete-donation">Mark as Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="4:15 PM">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Community Urban Reforestation Program</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 40</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>April 13, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-concluded">Concluded</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-secondary" disabled>Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="11:06 AM" data-reward-title="Supporter Kit" data-delivery-address="Via Roma 13, 56025 Pontedera (PI)" data-email="mario.rossi@example.com">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Accessible Sports Center for Teenagers</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 75</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>April 11, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-pending">Pending</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-success complete-donation">Mark as Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="6:31 PM" data-reward-title="Digital Supporter" data-delivery-address="Corso Italia 88, 57125 Livorno (LI)" data-email="mario.rossi@example.com">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Distributed FabLab for Secondary Schools</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 25</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>April 8, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-concluded">Concluded</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-secondary" disabled>Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="9:20 AM" data-reward-title="Premium Digital Badge" data-delivery-address="Via Puccini 12, 56021 Cascina (PI)" data-email="mario.rossi@example.com">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Digital Archive for Civic Libraries</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 60</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>April 5, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-pending">Pending</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-success complete-donation">Mark as Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="2:04 PM">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Emergency Kits for Flooded Families</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 20</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>April 2, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-concluded">Concluded</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-secondary" disabled>Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="5:55 PM" data-reward-title="Guided Workshop Access" data-delivery-address="Via Cairoli 44, 55100 Lucca (LU)" data-email="mario.rossi@example.com">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Inclusive Science Kits for Middle Schools</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 100</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>March 30, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-pending">Pending</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-success complete-donation">Mark as Concluded</button>
+          </div>
+        </article>
+
+        <article class="donation-item" data-time="12:18 PM">
+          <div class="campaign-title">
+            <span>Campaign title</span>
+            <strong>Maker Bus for Southern Technical Institutes</strong>
+          </div>
+          <div class="donation-field">
+            <span>Amount</span>
+            <strong>EUR 55</strong>
+          </div>
+          <div class="donation-field">
+            <span>Donation date</span>
+            <strong>March 25, 2026</strong>
+          </div>
+          <div class="donation-field">
+            <span>Status</span>
+            <strong class="status-pill status-concluded">Concluded</strong>
+          </div>
+          <div class="donation-actions">
+            <a href="Campaign.html" class="button button-primary">View campaign</a>
+            <button type="button" class="button button-secondary donation-details">Details</button>
+            <button type="button" class="button button-secondary" disabled>Concluded</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="donation-pagination" aria-label="Donation pagination">
+        <p class="pagination-status" id="donationPageStatus" aria-live="polite"></p>
+        <div class="pagination-controls">
+          <button type="button" class="button button-secondary" id="previousDonationsPage">Previous</button>
+          <div class="page-number-buttons" id="donationPageNumbers" aria-label="Donation pages"></div>
+          <button type="button" class="button button-secondary" id="nextDonationsPage">Next</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="donationDetailsModal" hidden>
+  <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="donationDetailsTitle">
+    <div class="modal-header">
+      <h2 id="donationDetailsTitle">Donation details</h2>
+      <button type="button" class="close-button" id="closeDetailsIcon" aria-label="Close donation details">&times;</button>
+    </div>
+
+    <div class="details-grid">
+      <div class="detail-item full">
+        <span>Campaign title</span>
+        <strong id="modalCampaignTitle"></strong>
+      </div>
+      <div class="detail-item">
+        <span>Amount</span>
+        <strong id="modalAmount"></strong>
+      </div>
+      <div class="detail-item">
+        <span>Status</span>
+        <strong class="status-pill" id="modalStatus"></strong>
+      </div>
+      <div class="detail-item full">
+        <span>Donation date and time</span>
+        <strong id="modalDonationTime"></strong>
+      </div>
+      <div class="detail-item full">
+        <span>Reward</span>
+        <strong id="modalRewardAvailability"></strong>
+      </div>
+
+      <div class="reward-details" id="modalRewardDetails" hidden>
+        <div class="detail-item full">
+          <span>Reward title</span>
+          <strong id="modalRewardTitle"></strong>
+        </div>
+        <div class="detail-item">
+          <span>Delivery address</span>
+          <strong id="modalDeliveryAddress"></strong>
+        </div>
+        <div class="detail-item">
+          <span>Email address</span>
+          <strong id="modalEmail"></strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="button button-secondary" id="closeDetailsButton">Close</button>
+    </div>
+  </section>
+</div>
+
+<script>
+  const detailsModal = document.getElementById('donationDetailsModal');
+  const closeDetailsIcon = document.getElementById('closeDetailsIcon');
+  const closeDetailsButton = document.getElementById('closeDetailsButton');
+  const modalCampaignTitle = document.getElementById('modalCampaignTitle');
+  const modalAmount = document.getElementById('modalAmount');
+  const modalStatus = document.getElementById('modalStatus');
+  const modalDonationTime = document.getElementById('modalDonationTime');
+  const modalRewardAvailability = document.getElementById('modalRewardAvailability');
+  const modalRewardDetails = document.getElementById('modalRewardDetails');
+  const modalRewardTitle = document.getElementById('modalRewardTitle');
+  const modalDeliveryAddress = document.getElementById('modalDeliveryAddress');
+  const modalEmail = document.getElementById('modalEmail');
+  const donationList = document.getElementById('donationList');
+  const donationItems = Array.from(donationList.querySelectorAll('.donation-item'));
+  const donationPageStatus = document.getElementById('donationPageStatus');
+  const donationPageNumbers = document.getElementById('donationPageNumbers');
+  const previousDonationsPage = document.getElementById('previousDonationsPage');
+  const nextDonationsPage = document.getElementById('nextDonationsPage');
+  const donationsPerPage = 4;
+  let detailsTrigger = null;
+  let currentDonationPage = 1;
+
+  function renderDonationPagination() {
+    const totalPages = Math.max(1, Math.ceil(donationItems.length / donationsPerPage));
+    const startIndex = (currentDonationPage - 1) * donationsPerPage;
+    const endIndex = Math.min(startIndex + donationsPerPage, donationItems.length);
+
+    donationItems.forEach((item, index) => {
+      item.hidden = index < startIndex || index >= endIndex;
+    });
+
+    donationPageStatus.textContent = `Showing ${startIndex + 1}-${endIndex} of ${donationItems.length} donations`;
+    previousDonationsPage.disabled = currentDonationPage === 1;
+    nextDonationsPage.disabled = currentDonationPage === totalPages;
+
+    donationPageNumbers.innerHTML = '';
+    for (let page = 1; page <= totalPages; page += 1) {
+      const pageButton = document.createElement('button');
+      pageButton.type = 'button';
+      pageButton.className = `button button-secondary page-number${page === currentDonationPage ? ' active' : ''}`;
+      pageButton.textContent = String(page);
+      pageButton.setAttribute('aria-label', `Show donation page ${page}`);
+      if (page === currentDonationPage) pageButton.setAttribute('aria-current', 'page');
+      pageButton.addEventListener('click', () => {
+        currentDonationPage = page;
+        renderDonationPagination();
+      });
+      donationPageNumbers.appendChild(pageButton);
+    }
+  }
+
+  function openDonationDetails(button) {
+    const donation = button.closest('.donation-item');
+    const fields = donation.querySelectorAll('.donation-field strong');
+    const status = donation.querySelector('.status-pill');
+    const rewardTitle = donation.dataset.rewardTitle;
+
+    detailsTrigger = button;
+    modalCampaignTitle.textContent = donation.querySelector('.campaign-title strong').textContent;
+    modalAmount.textContent = fields[0].textContent;
+    modalStatus.textContent = status.textContent;
+    modalStatus.className = status.className;
+    modalStatus.id = 'modalStatus';
+    modalDonationTime.textContent = `${fields[1].textContent} at ${donation.dataset.time}`;
+
+    if (rewardTitle) {
+      modalRewardAvailability.textContent = 'Reward selected';
+      modalRewardTitle.textContent = rewardTitle;
+      modalDeliveryAddress.textContent = donation.dataset.deliveryAddress;
+      modalEmail.textContent = donation.dataset.email;
+      modalRewardDetails.hidden = false;
+    } else {
+      modalRewardAvailability.textContent = 'No reward selected';
+      modalRewardDetails.hidden = true;
+    }
+
+    detailsModal.hidden = false;
+    document.body.classList.add('modal-open');
+    closeDetailsIcon.focus();
+  }
+
+  function closeDonationDetails() {
+    detailsModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    if (detailsTrigger) detailsTrigger.focus();
+  }
+
+  document.querySelectorAll('.donation-details').forEach((button) => {
+    button.addEventListener('click', () => openDonationDetails(button));
+  });
+
+  closeDetailsIcon.addEventListener('click', closeDonationDetails);
+  closeDetailsButton.addEventListener('click', closeDonationDetails);
+  detailsModal.addEventListener('click', (event) => {
+    if (event.target === detailsModal) closeDonationDetails();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !detailsModal.hidden) {
+      closeDonationDetails();
+    }
+  });
+
+  document.querySelectorAll('.complete-donation').forEach((button) => {
+    button.addEventListener('click', () => {
+      const donation = button.closest('.donation-item');
+      const status = donation.querySelector('.status-pill');
+
+      status.textContent = 'Concluded';
+      status.classList.remove('status-pending');
+      status.classList.add('status-concluded');
+
+      button.textContent = 'Concluded';
+      button.classList.remove('button-success');
+      button.classList.add('button-secondary');
+      button.disabled = true;
+    });
+  });
+
+  previousDonationsPage.addEventListener('click', () => {
+    if (currentDonationPage > 1) {
+      currentDonationPage -= 1;
+      renderDonationPagination();
+    }
+  });
+
+  nextDonationsPage.addEventListener('click', () => {
+    const totalPages = Math.max(1, Math.ceil(donationItems.length / donationsPerPage));
+    if (currentDonationPage < totalPages) {
+      currentDonationPage += 1;
+      renderDonationPagination();
+    }
+  });
+
+  renderDonationPagination();
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

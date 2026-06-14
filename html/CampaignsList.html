@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Organization Campaigns List</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-campaigns-list">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="CampaignsList.html" class="active">My Campaigns</a>
+      <a href="OrganizationDashboard.html">Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="layout">
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Closed and concluded campaigns</h2>
+          <p>Campaigns no longer accepting donations, ordered from the most recent to the oldest.</p>
+        </div>
+      </div>
+
+      <div class="campaign-list">
+        <article class="campaign-item">
+          <div class="item-head">
+            <strong>Digital STEM Archive for Civic Libraries</strong>
+            <div class="badge-row">
+              <span class="status-pill status-closed">Concluded</span>
+              <span class="meta-pill">Most recent</span>
+            </div>
+          </div>
+          <div class="campaign-grid">
+            <div class="info-box">
+              <span>Start date</span>
+              <strong>January 14, 2026</strong>
+            </div>
+            <div class="info-box">
+              <span>End date</span>
+              <strong>March 20, 2026</strong>
+            </div>
+            <div class="info-box">
+              <span>Amount raised</span>
+              <strong>€ 12,700</strong>
+            </div>
+            <div class="info-box">
+              <span>Funding goal</span>
+              <strong>€ 12,000</strong>
+            </div>
+          </div>
+          <div class="item-actions">
+            <a href="CampaignManage.html" class="button button-primary">Open campaign management</a>
+          </div>
+        </article>
+
+        <article class="campaign-item">
+          <div class="item-head">
+            <strong>Mobile Reading Center for Urban Outskirts</strong>
+            <div class="badge-row">
+              <span class="status-pill status-ended">Closed</span>
+              <span class="meta-pill">Ordered by date</span>
+            </div>
+          </div>
+          <div class="campaign-grid">
+            <div class="info-box">
+              <span>Start date</span>
+              <strong>December 8, 2025</strong>
+            </div>
+            <div class="info-box">
+              <span>End date</span>
+              <strong>February 10, 2026</strong>
+            </div>
+            <div class="info-box">
+              <span>Amount raised</span>
+              <strong>€ 7,950</strong>
+            </div>
+            <div class="info-box">
+              <span>Funding goal</span>
+              <strong>€ 10,000</strong>
+            </div>
+          </div>
+          <div class="item-actions">
+            <a href="CampaignManage.html" class="button button-primary">Open campaign management</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="pagination">
+        <a href="#" class="button button-secondary">Page 1</a>
+        <a href="#" class="button button-secondary">Page 2</a>
+        <a href="#" class="button button-secondary">Page 3</a>
+      </div>
+    </section>
+  </div>
+</main>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

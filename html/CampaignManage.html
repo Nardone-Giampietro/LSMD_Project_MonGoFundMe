@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MonGoFundMe - Organization Campaign View</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-campaign-manage">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+    <div class="container nav">
+        <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+            <div class="brand-mark">M</div>
+            <div>MonGoFundMe</div>
+        </a>
+
+        <nav class="nav-main" aria-label="Main navigation">
+            <a href="Home.html">Home</a>
+            <a href="Search.html">Search</a>
+            <a href="CampaignManage.html" class="active">Manage Campaign</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="OrganizationDashboard.html" class="button button-secondary">Dashboard</a>
+            <a href="Campaign.html" class="button button-secondary">Public Preview</a>
+        </div>
+    </div>
+</header>
+
+<main class="container page">
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <div class="eyebrow">Organization Panel · Campaign Details</div>
+                <h1>Mobile STEM Lab for Underserved Schools</h1>
+                <p>
+                    The campaign funds a mobile STEM laboratory intended for underserved schools with more limited access to
+                    technological equipment, educational kits, and specialized tutors. The goal is to bring traveling activities
+                    in robotics, coding, and making to vulnerable school environments.
+                </p>
+
+                <div class="tag-list">
+                    <span class="tag-item">Education</span>
+                    <span class="tag-item">STEM</span>
+                    <span class="tag-item">Youth</span>
+                </div>
+
+                <div class="inline-list">
+                    <span class="inline-item">Start date: February 28, 2026</span>
+                    <span class="inline-item">End date: June 27, 2026</span>
+                    <span class="inline-item">Status: Open</span>
+                </div>
+            </div>
+
+            <aside class="summary-panel">
+                <div>
+                    <span>Current fundraising</span>
+                    <strong>€ 18,500 / € 25,000</strong>
+                </div>
+
+                <div class="progress-wrap">
+                    <div class="progress-meta">
+                        <span>74% of the goal reached</span>
+                        <span>236 donations</span>
+                    </div>
+                    <div class="progress-bar" aria-label="74 percent completed">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <strong>12</strong>
+                        <span>days remaining</span>
+                    </div>
+                    <div class="kpi-card">
+                        <strong>24</strong>
+                        <span>pending rewards</span>
+                    </div>
+                </div>
+
+                <a href="CampaingDonationsList.html" class="button button-primary">Donations List</a>
+            </aside>
+        </div>
+    </section>
+
+    <div class="content-grid">
+        <section class="card">
+            <div class="card-header">
+                <div>
+                    <h2>Milestones</h2>
+                    <p>Track the funding checkpoints required to release or validate each operational phase of the campaign.</p>
+                </div>
+                <span class="status-pill status-open">3 milestones</span>
+            </div>
+
+            <div class="milestone-list">
+                <article class="milestone-item" data-milestone-state="verified">
+                    <div class="item-top">
+                        <strong>Milestone 1 · Purchase of the first set of educational kits</strong>
+                        <span class="status-pill status-verified milestone-status">Verified</span>
+                    </div>
+                    <div class="item-meta">
+                        Target amount: € 8,000<br />
+                        Verified on: March 12, 2026
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="button button-secondary verify-milestone" disabled>Already verified</button>
+                    </div>
+                </article>
+
+                <article class="milestone-item" data-milestone-state="verified">
+                    <div class="item-top">
+                        <strong>Milestone 2 · Setup of the laboratory van</strong>
+                        <span class="status-pill status-verified milestone-status">Verified</span>
+                    </div>
+                    <div class="item-meta">
+                        Target amount: € 15,000<br />
+                        Verified on: April 28, 2026
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="button button-secondary verify-milestone" disabled>Already verified</button>
+                    </div>
+                </article>
+
+                <article class="milestone-item" data-milestone-state="pending">
+                    <div class="item-top">
+                        <strong>Milestone 3 · Launch of the program in 5 schools</strong>
+                        <span class="status-pill status-pending milestone-status">Pending</span>
+                    </div>
+                    <div class="item-meta">
+                        Target amount: € 25,000
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="button button-primary verify-milestone">Mark as verified</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="card" id="updates">
+            <div class="card-header">
+                <div>
+                    <h2>Published Updates</h2>
+                    <p>Communications published by the organization to keep donors informed about campaign execution.</p>
+                </div>
+                <button type="button" class="button button-primary" id="openUpdateModal">Add Update</button>
+            </div>
+
+            <div class="update-list" id="updateList">
+                <article class="update-item">
+                    <div class="item-top">
+                        <strong>Update #12 · Second batch of materials confirmed</strong>
+                        <span class="tag-item">April 16, 2026</span>
+                    </div>
+                    <div class="item-body">
+                        Additional robotics kits and educational notebooks have been ordered. The logistical setup of the van
+                        is proceeding according to the plan scheduled for the second half of April.
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="button button-danger">Delete</button>
+                    </div>
+                </article>
+
+                <article class="update-item">
+                    <div class="item-top">
+                        <strong>Update #11 · Milestone 2 threshold reached</strong>
+                        <span class="tag-item">April 11, 2026</span>
+                    </div>
+                    <div class="item-body">
+                        The total amount raised has exceeded the funding threshold required to complete the technical setup of the
+                        mobile laboratory. Photos and operational details will be published in the coming weeks.
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="button button-danger">Delete</button>
+                    </div>
+                </article>
+
+                <article class="update-item">
+                    <div class="item-top">
+                        <strong>Update #10 · First confirmations from partner schools</strong>
+                        <span class="tag-item">April 5, 2026</span>
+                    </div>
+                    <div class="item-body">
+                        Three schools have already confirmed their interest in hosting the first traveling modules of the project.
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="button button-danger">Delete</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div class="modal-backdrop" id="addUpdateModal" hidden>
+    <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="addUpdateTitle">
+        <div class="modal-header">
+            <h2 id="addUpdateTitle">Add update</h2>
+            <button type="button" class="close-button" id="closeUpdateModalIcon" aria-label="Close update form">&times;</button>
+        </div>
+
+        <form class="update-form" id="addUpdateForm">
+            <div class="form-field">
+                <label for="updateTitleInput">Title</label>
+                <input type="text" id="updateTitleInput" name="title" required />
+            </div>
+
+            <div class="form-field">
+                <label for="updateDescriptionInput">Description</label>
+                <textarea id="updateDescriptionInput" name="description" required></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="button button-secondary" id="cancelUpdateModal">Cancel</button>
+                <button type="submit" class="button button-primary">Publish Update</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+<script>
+    const verifyButtons = document.querySelectorAll('.verify-milestone');
+    const openUpdateModalButton = document.getElementById('openUpdateModal');
+    const addUpdateModal = document.getElementById('addUpdateModal');
+    const closeUpdateModalIcon = document.getElementById('closeUpdateModalIcon');
+    const cancelUpdateModal = document.getElementById('cancelUpdateModal');
+    const addUpdateForm = document.getElementById('addUpdateForm');
+    const updateTitleInput = document.getElementById('updateTitleInput');
+    const updateDescriptionInput = document.getElementById('updateDescriptionInput');
+    const updateList = document.getElementById('updateList');
+    let updateModalTrigger = null;
+
+    verifyButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.disabled) return;
+
+            const milestoneItem = button.closest('.milestone-item');
+            const statusBadge = milestoneItem.querySelector('.milestone-status');
+
+            milestoneItem.dataset.milestoneState = 'verified';
+            statusBadge.textContent = 'Verified';
+            statusBadge.classList.remove('status-pending');
+            statusBadge.classList.add('status-verified');
+
+            button.textContent = 'Already verified';
+            button.classList.remove('button-primary');
+            button.classList.add('button-secondary');
+            button.disabled = true;
+        });
+    });
+
+    function openUpdateModal() {
+        updateModalTrigger = document.activeElement;
+        addUpdateModal.hidden = false;
+        document.body.classList.add('modal-open');
+        updateTitleInput.focus();
+    }
+
+    function closeUpdateModal() {
+        addUpdateModal.hidden = true;
+        document.body.classList.remove('modal-open');
+        addUpdateForm.reset();
+        if (updateModalTrigger) updateModalTrigger.focus();
+    }
+
+    function getNextUpdateNumber() {
+        const latestTitle = updateList.querySelector('.update-item strong')?.textContent || '';
+        const latestNumber = Number(latestTitle.match(/Update #(\d+)/)?.[1] || 0);
+        return latestNumber + 1;
+    }
+
+    function getTodayLabel() {
+        return new Intl.DateTimeFormat('en', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric'
+        }).format(new Date());
+    }
+
+    function publishUpdate(title, description) {
+        const updateItem = document.createElement('article');
+        updateItem.className = 'update-item';
+
+        const itemTop = document.createElement('div');
+        itemTop.className = 'item-top';
+
+        const titleNode = document.createElement('strong');
+        titleNode.textContent = `Update #${getNextUpdateNumber()} · ${title}`;
+
+        const dateNode = document.createElement('span');
+        dateNode.className = 'tag-item';
+        dateNode.textContent = getTodayLabel();
+
+        const bodyNode = document.createElement('div');
+        bodyNode.className = 'item-body';
+        bodyNode.textContent = description;
+
+        const actionsNode = document.createElement('div');
+        actionsNode.className = 'item-actions';
+
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.className = 'button button-danger';
+        deleteButton.textContent = 'Delete';
+
+        itemTop.append(titleNode, dateNode);
+        actionsNode.append(deleteButton);
+        updateItem.append(itemTop, bodyNode, actionsNode);
+        updateList.prepend(updateItem);
+    }
+
+    openUpdateModalButton.addEventListener('click', openUpdateModal);
+    closeUpdateModalIcon.addEventListener('click', closeUpdateModal);
+    cancelUpdateModal.addEventListener('click', closeUpdateModal);
+    addUpdateModal.addEventListener('click', (event) => {
+        if (event.target === addUpdateModal) closeUpdateModal();
+    });
+
+    addUpdateForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const title = updateTitleInput.value.trim();
+        const description = updateDescriptionInput.value.trim();
+
+        if (!title || !description) return;
+
+        publishUpdate(title, description);
+        closeUpdateModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !addUpdateModal.hidden) {
+            closeUpdateModal();
+        }
+    });
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

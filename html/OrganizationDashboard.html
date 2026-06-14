@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Organization Dashboard</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-organization-dashboard">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="OrganizationDashboard.html" class="active">Organization Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container page">
+  <section class="panel" aria-label="Organization information">
+    <h2>Organization information</h2>
+    <div class="organization-info-grid">
+      <div class="organization-info-item">
+        <span>Legal Name</span>
+        <strong>Fondazione Crescita Digitale</strong>
+      </div>
+      <div class="organization-info-item">
+        <span>Email</span>
+        <strong>contact@crescita-digitale.org</strong>
+      </div>
+      <div class="organization-info-item">
+        <span>Street</span>
+        <strong>Via Monte Napoleone 18</strong>
+      </div>
+      <div class="organization-info-item">
+        <span>City</span>
+        <strong>Milan</strong>
+      </div>
+      <div class="organization-info-item">
+        <span>ZIP</span>
+        <strong>20121</strong>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="panel">
+      <span class="status">Create</span>
+      <h2>Create campaign</h2>
+      <p>Start a new fundraising campaign for your organization.</p>
+      <div class="actions">
+        <a href="CampaingRegister.html" class="button button-primary">Create Campaign</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="status">Manage</span>
+      <h2>Closed and concluded campaigns</h2>
+      <p>Review campaigns that are no longer accepting donations.</p>
+      <div class="actions">
+        <a href="CampaignsList.html" class="button button-primary">See Closed / Concluded Campaigns</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel open-campaigns" aria-label="Open campaigns">
+    <div>
+      <span class="status open">Open campaigns</span>
+      <h2 class="u-open-campaigns-heading">Current fundraising campaigns</h2>
+      <p class="u-m-0">Showing active campaigns managed by your organization.</p>
+    </div>
+
+    <div class="campaign-list">
+      <article class="campaign-item">
+        <div class="campaign-heading">
+          <strong>Inclusive Science Kits for Middle Schools</strong>
+          <span class="status open">Open</span>
+        </div>
+        <div class="campaign-details">
+          <div class="campaign-detail">
+            <span>Start date</span>
+            <strong>March 12, 2026</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>End date</span>
+            <strong>June 11, 2026</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>Goal amount</span>
+            <strong>EUR 20,000</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>Amount raised</span>
+            <strong>EUR 14,250</strong>
+          </div>
+        </div>
+        <div class="campaign-actions">
+          <a href="CampaignManage.html" class="button button-primary">Manage Campaign</a>
+        </div>
+      </article>
+
+      <article class="campaign-item">
+        <div class="campaign-heading">
+          <strong>Digital Learning Hub for Fragile Neighborhoods</strong>
+          <span class="status open">Open</span>
+        </div>
+        <div class="campaign-details">
+          <div class="campaign-detail">
+            <span>Start date</span>
+            <strong>March 5, 2026</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>End date</span>
+            <strong>June 3, 2026</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>Goal amount</span>
+            <strong>EUR 16,000</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>Amount raised</span>
+            <strong>EUR 9,800</strong>
+          </div>
+        </div>
+        <div class="campaign-actions">
+          <a href="CampaignManage.html" class="button button-primary">Manage Campaign</a>
+        </div>
+      </article>
+
+      <article class="campaign-item">
+        <div class="campaign-heading">
+          <strong>Mobile STEM Lab for Underserved Schools</strong>
+          <span class="status open">Open</span>
+        </div>
+        <div class="campaign-details">
+          <div class="campaign-detail">
+            <span>Start date</span>
+            <strong>February 28, 2026</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>End date</span>
+            <strong>June 27, 2026</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>Goal amount</span>
+            <strong>EUR 25,000</strong>
+          </div>
+          <div class="campaign-detail">
+            <span>Amount raised</span>
+            <strong>EUR 18,500</strong>
+          </div>
+        </div>
+        <div class="campaign-actions">
+          <a href="CampaignManage.html" class="button button-primary">Manage Campaign</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

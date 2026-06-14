@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Home</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-home">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html" class="active">Home</a>
+      <a href="Search.html">Search</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="DonorDashboard.html" id="dashboardButton" class="button button-secondary hidden">Dashboard</a>
+      <a href="CampaingRegister.html" id="createCampaignButton" class="button button-primary hidden">Create Campaign</a>
+      <a href="Login.html" id="loginButton" class="button button-ghost">Log In</a>
+      <a href="Signup.html" id="signupButton" class="button button-primary">Sign Up</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section id="campaigns">
+    <div class="section-header">
+      <div>
+        <h2>20 Most Relevant Campaigns</h2>
+          
+      </div>
+    </div>
+
+    <div class="campaign-grid">
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-1">
+          <div class="campaign-days">12 days left</div>
+          <div class="image-content">
+            <h3>Mobile STEM Lab for Underserved Schools</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>74%</strong>
+            <span>€ 18,500 raised out of € 25,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-74"></div></div>
+          <div class="tags">
+            <span class="tag">Education</span>
+            <span class="tag">STEM</span>
+            <span class="tag">Youth</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-2">
+          <div class="campaign-days">6 days left</div>
+          <div class="image-content">
+            <h3>Urban Reforestation for High-Density Neighborhoods</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>91%</strong>
+            <span>€ 45,500 raised out of € 50,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-91"></div></div>
+          <div class="tags">
+            <span class="tag">Green</span>
+            <span class="tag">Cities</span>
+            <span class="tag">Climate</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-3">
+          <div class="campaign-days">18 days left</div>
+          <div class="image-content">
+            <h3>New Diagnostic Unit for Pediatric Screening</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>58%</strong>
+            <span>€ 29,000 raised out of € 50,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-58"></div></div>
+          <div class="tags">
+            <span class="tag">Health</span>
+            <span class="tag">Children</span>
+            <span class="tag">Hospital</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-4">
+          <div class="campaign-days">24 days left</div>
+          <div class="image-content">
+            <h3>Restoration of a Digitized Local Photo Archive</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>33%</strong>
+            <span>€ 6,600 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-33"></div></div>
+          <div class="tags">
+            <span class="tag">Culture</span>
+            <span class="tag">Heritage</span>
+            <span class="tag">Digital</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-5">
+          <div class="campaign-days">9 days left</div>
+          <div class="image-content">
+            <h3>Accessible Sports Center for Teenagers with Disabilities</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>81%</strong>
+            <span>€ 32,400 raised out of € 40,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-81"></div></div>
+          <div class="tags">
+            <span class="tag">Accessibility</span>
+            <span class="tag">Sport</span>
+            <span class="tag">Community</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-6">
+          <div class="campaign-days">3 days left</div>
+          <div class="image-content">
+            <h3>Emergency Kits for Families Affected by Flooding</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>96%</strong>
+            <span>€ 19,200 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-96"></div></div>
+          <div class="tags">
+            <span class="tag">Emergency</span>
+            <span class="tag">Relief</span>
+            <span class="tag">Families</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-7">
+          <div class="campaign-days">15 days left</div>
+          <div class="image-content">
+            <h3>Community Coding Workshops for Rural Students</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>67%</strong>
+            <span>€ 13,400 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-67"></div></div>
+          <div class="tags">
+            <span class="tag">Coding</span>
+            <span class="tag">Education</span>
+            <span class="tag">Rural</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-8">
+          <div class="campaign-days">21 days left</div>
+          <div class="image-content">
+            <h3>Inclusive Maker Space for Public Schools</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>49%</strong>
+            <span>€ 12,250 raised out of € 25,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-49"></div></div>
+          <div class="tags">
+            <span class="tag">Makers</span>
+            <span class="tag">STEM</span>
+            <span class="tag">Accessibility</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-9">
+          <div class="campaign-days">11 days left</div>
+          <div class="image-content">
+            <h3>Scholarship Fund for First-Generation Students</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>85%</strong>
+            <span>€ 34,000 raised out of € 40,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-85"></div></div>
+          <div class="tags">
+            <span class="tag">Scholarship</span>
+            <span class="tag">Youth</span>
+            <span class="tag">Education</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-10">
+          <div class="campaign-days">28 days left</div>
+          <div class="image-content">
+            <h3>Solar Panels for Community Health Clinics</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>42%</strong>
+            <span>€ 21,000 raised out of € 50,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-42"></div></div>
+          <div class="tags">
+            <span class="tag">Energy</span>
+            <span class="tag">Health</span>
+            <span class="tag">Sustainability</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-11">
+          <div class="campaign-days">14 days left</div>
+          <div class="image-content">
+            <h3>Emergency Housing Support for Women and Children</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>77%</strong>
+            <span>€ 30,800 raised out of € 40,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-77"></div></div>
+          <div class="tags">
+            <span class="tag">Housing</span>
+            <span class="tag">Families</span>
+            <span class="tag">Social Care</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-12">
+          <div class="campaign-days">17 days left</div>
+          <div class="image-content">
+            <h3>River Cleanup and Biodiversity Recovery</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>63%</strong>
+            <span>€ 15,750 raised out of € 25,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-63"></div></div>
+          <div class="tags">
+            <span class="tag">Environment</span>
+            <span class="tag">Biodiversity</span>
+            <span class="tag">Community</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-13">
+          <div class="campaign-days">8 days left</div>
+          <div class="image-content">
+            <h3>Books and Tablets for Hospitalized Children</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>88%</strong>
+            <span>€ 17,600 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-88"></div></div>
+          <div class="tags">
+            <span class="tag">Children</span>
+            <span class="tag">Health</span>
+            <span class="tag">Education</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-14">
+          <div class="campaign-days">20 days left</div>
+          <div class="image-content">
+            <h3>Vocational Training for Unemployed Youth</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>54%</strong>
+            <span>€ 16,200 raised out of € 30,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-54"></div></div>
+          <div class="tags">
+            <span class="tag">Training</span>
+            <span class="tag">Youth</span>
+            <span class="tag">Jobs</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-15">
+          <div class="campaign-days">13 days left</div>
+          <div class="image-content">
+            <h3>Accessible Playground for Inclusive Neighborhoods</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>71%</strong>
+            <span>€ 24,850 raised out of € 35,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-71"></div></div>
+          <div class="tags">
+            <span class="tag">Accessibility</span>
+            <span class="tag">Children</span>
+            <span class="tag">Community</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-16">
+          <div class="campaign-days">22 days left</div>
+          <div class="image-content">
+            <h3>Digital Skills for Senior Citizens</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>46%</strong>
+            <span>€ 9,200 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-46"></div></div>
+          <div class="tags">
+            <span class="tag">Digital</span>
+            <span class="tag">Seniors</span>
+            <span class="tag">Inclusion</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-17">
+          <div class="campaign-days">10 days left</div>
+          <div class="image-content">
+            <h3>Legal Aid for Vulnerable Families</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>83%</strong>
+            <span>€ 16,600 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-83"></div></div>
+          <div class="tags">
+            <span class="tag">Rights</span>
+            <span class="tag">Families</span>
+            <span class="tag">Support</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-18">
+          <div class="campaign-days">19 days left</div>
+          <div class="image-content">
+            <h3>Music Therapy Rooms for Pediatric Centers</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>59%</strong>
+            <span>€ 14,750 raised out of € 25,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-59"></div></div>
+          <div class="tags">
+            <span class="tag">Health</span>
+            <span class="tag">Music</span>
+            <span class="tag">Children</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-19">
+          <div class="campaign-days">7 days left</div>
+          <div class="image-content">
+            <h3>University Books Fund for Low-Income Students</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>93%</strong>
+            <span>€ 13,950 raised out of € 15,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-93"></div></div>
+          <div class="tags">
+            <span class="tag">Books</span>
+            <span class="tag">Students</span>
+            <span class="tag">Education</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-20">
+          <div class="campaign-days">26 days left</div>
+          <div class="image-content">
+            <h3>Tree Planting Around Public Schools</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>38%</strong>
+            <span>€ 7,600 raised out of € 20,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-38"></div></div>
+          <div class="tags">
+            <span class="tag">Climate</span>
+            <span class="tag">Schools</span>
+            <span class="tag">Green</span>
+          </div>
+           
+        </div>
+      </article>
+
+      <article class="campaign-card">
+        <div class="campaign-image page-home-bg-21">
+          <div class="campaign-days">16 days left</div>
+          <div class="image-content">
+            <h3>Rehabilitation Equipment for Local Clinics</h3>
+              
+          </div>
+        </div>
+        <div class="campaign-body">
+          <div class="progress-row">
+            <strong>69%</strong>
+            <span>€ 27,600 raised out of € 40,000</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill progress-width-69"></div></div>
+          <div class="tags">
+            <span class="tag">Rehabilitation</span>
+            <span class="tag">Health</span>
+            <span class="tag">Equipment</span>
+          </div>
+           
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  const loginButton = document.getElementById('loginButton');
+  const signupButton = document.getElementById('signupButton');
+  const dashboardButton = document.getElementById('dashboardButton');
+  const createCampaignButton = document.getElementById('createCampaignButton');
+  const featuredCampaignCards = document.querySelectorAll('.campaign-card');
+
+  function setUserState(state) {
+    const isGuest = state === 'guest';
+    const isEntity = state === 'entity';
+    const isAdmin = state === 'admin';
+    const isLogged = state === 'donor' || state === 'entity' || isAdmin;
+
+    loginButton.classList.toggle('hidden', !isGuest);
+    signupButton.classList.toggle('hidden', !isGuest);
+    dashboardButton.classList.toggle('hidden', !isLogged);
+    createCampaignButton.classList.toggle('hidden', !isEntity);
+    dashboardButton.href = isAdmin ? 'AdminDashboard.html' : (isEntity ? 'OrganizationDashboard.html' : 'DonorDashboard.html');
+    dashboardButton.textContent = isAdmin ? 'Admin Dashboard' : (isEntity ? 'Organization Dashboard' : 'Donor Dashboard');
+  }
+
+  featuredCampaignCards.forEach((card) => {
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', () => {
+      window.location.href = 'Campaign.html';
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        window.location.href = 'Campaign.html';
+      }
+    });
+  });
+
+  setUserState('guest');
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

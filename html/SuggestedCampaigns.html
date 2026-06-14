@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Suggested Campaigns</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-suggested-campaigns">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="Campaign.html">Campaign</a>
+      <a href="DonorDashboard.html">Donor Dashboard</a>
+      <a href="SuggestedCampaigns.html" class="active">Suggested Campaigns</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="DonorDashboard.html" class="button button-secondary">Dashboard</a>
+    </div>
+  </div>
+</header>
+
+<main class="container page">
+  <section class="hero">
+    <div class="hero-content">
+      <div>
+        <div class="eyebrow">Suggested Campaigns</div>
+        <h1>Campaigns matched to this donor</h1>
+        <p>Suggestions are based on previous donor activity and lead back to the public campaign view when selected.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="campaign-grid" aria-label="Suggested campaigns">
+    <a href="Campaign.html" class="campaign-card" aria-label="Open campaign Mobile STEM Lab for Underserved Schools">
+      <div class="campaign-image page-suggested-campaigns-bg-1">
+        <div class="image-content">
+          <h3>Mobile STEM Lab for Underserved Schools</h3>
+        </div>
+      </div>
+    </a>
+
+    <a href="Campaign.html" class="campaign-card" aria-label="Open campaign Books and Tablets for Rural Libraries">
+      <div class="campaign-image page-suggested-campaigns-bg-2">
+        <div class="image-content">
+          <h3>Books and Tablets for Rural Libraries</h3>
+        </div>
+      </div>
+    </a>
+
+    <a href="Campaign.html" class="campaign-card" aria-label="Open campaign Rehabilitation Equipment for Local Clinics">
+      <div class="campaign-image page-suggested-campaigns-bg-3">
+        <div class="image-content">
+          <h3>Rehabilitation Equipment for Local Clinics</h3>
+        </div>
+      </div>
+    </a>
+  </section>
+</main>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

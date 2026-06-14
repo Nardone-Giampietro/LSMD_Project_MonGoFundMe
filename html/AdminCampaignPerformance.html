@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MonGoFundMe - Administrator Performance Review</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-admin-campaign-performance">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+    <div class="container nav">
+        <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+            <div class="brand-mark">M</div>
+            <div>MonGoFundMe</div>
+        </a>
+
+        <nav class="nav-main" aria-label="Main navigation">
+            <a href="Home.html">Home</a>
+            <a href="Search.html">Search</a>
+            <a href="AdminCampaignPerformance.html" class="active">Performance Review</a>
+            <a href="AdminDashboard.html">Admin Dashboard</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container page">
+    <section class="card">
+        <div class="card-header">
+            <div>
+                <h2>Performance Ranking</h2>
+                <p>
+                    Ranked by performance score, then by total raised amount, then by total donation count.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <colgroup>
+                    <col class="name-col" />
+                    <col class="city-col" />
+                    <col class="count-col" />
+                    <col class="open-col" />
+                    <col class="concluded-col" />
+                    <col class="raised-col" />
+                    <col class="goal-col" />
+                    <col class="donations-col" />
+                    <col class="funding-col" />
+                    <col class="milestone-col" />
+                    <col class="score-col" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Total</th>
+                    <th>Open</th>
+                    <th>Concluded</th>
+                    <th>Raised</th>
+                    <th>Goal</th>
+                    <th>Donations</th>
+                    <th>Funding</th>
+                    <th>Milestones</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+
+                <tbody id="rankingTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <div class="pagination-info" id="paginationInfo"></div>
+
+            <div class="pagination-actions">
+                <button type="button" class="button button-secondary" id="prevPage">Previous</button>
+                <button type="button" class="button button-secondary" id="pageOne">Page 1</button>
+                <button type="button" class="button button-secondary" id="pageTwo">Page 2</button>
+                <button type="button" class="button button-secondary" id="pageThree">Page 3</button>
+                <button type="button" class="button button-secondary" id="nextPage">Next</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const performanceData = [
+        {
+            name: "Territorial Aid Network",
+            city: "Ravenna",
+            campaignCount: 7,
+            openCampaignCount: 3,
+            concludedCampaignCount: 4,
+            totalRaised: 192000,
+            totalGoal: 210000,
+            totalDonationCount: 6420,
+            fundingRatio: 91,
+            milestoneVerificationRatio: 96,
+            performanceScore: 94
+        },
+        {
+            name: "Verde Comune Foundation",
+            city: "Milan",
+            campaignCount: 9,
+            openCampaignCount: 4,
+            concludedCampaignCount: 5,
+            totalRaised: 455000,
+            totalGoal: 500000,
+            totalDonationCount: 5100,
+            fundingRatio: 91,
+            milestoneVerificationRatio: 92,
+            performanceScore: 93
+        },
+        {
+            name: "Sport For All ETS",
+            city: "Florence",
+            campaignCount: 6,
+            openCampaignCount: 2,
+            concludedCampaignCount: 4,
+            totalRaised: 324000,
+            totalGoal: 400000,
+            totalDonationCount: 3010,
+            fundingRatio: 81,
+            milestoneVerificationRatio: 90,
+            performanceScore: 88
+        },
+        {
+            name: "EduSpark Association",
+            city: "Pisa",
+            campaignCount: 8,
+            openCampaignCount: 3,
+            concludedCampaignCount: 5,
+            totalRaised: 185000,
+            totalGoal: 250000,
+            totalDonationCount: 2360,
+            fundingRatio: 74,
+            milestoneVerificationRatio: 67,
+            performanceScore: 82
+        },
+        {
+            name: "Salus Insieme Organization",
+            city: "Bologna",
+            campaignCount: 5,
+            openCampaignCount: 2,
+            concludedCampaignCount: 3,
+            totalRaised: 290000,
+            totalGoal: 500000,
+            totalDonationCount: 1880,
+            fundingRatio: 58,
+            milestoneVerificationRatio: 75,
+            performanceScore: 78
+        },
+        {
+            name: "Civic Health Lab",
+            city: "Turin",
+            campaignCount: 4,
+            openCampaignCount: 1,
+            concludedCampaignCount: 3,
+            totalRaised: 148000,
+            totalGoal: 220000,
+            totalDonationCount: 1720,
+            fundingRatio: 67,
+            milestoneVerificationRatio: 70,
+            performanceScore: 74
+        },
+        {
+            name: "Memoria Viva Archive",
+            city: "Naples",
+            campaignCount: 6,
+            openCampaignCount: 2,
+            concludedCampaignCount: 4,
+            totalRaised: 66000,
+            totalGoal: 200000,
+            totalDonationCount: 720,
+            fundingRatio: 33,
+            milestoneVerificationRatio: 64,
+            performanceScore: 68
+        },
+        {
+            name: "Community Food Bridge",
+            city: "Rome",
+            campaignCount: 10,
+            openCampaignCount: 5,
+            concludedCampaignCount: 5,
+            totalRaised: 214000,
+            totalGoal: 390000,
+            totalDonationCount: 2420,
+            fundingRatio: 55,
+            milestoneVerificationRatio: 61,
+            performanceScore: 66
+        },
+        {
+            name: "Open School Network",
+            city: "Padua",
+            campaignCount: 5,
+            openCampaignCount: 2,
+            concludedCampaignCount: 3,
+            totalRaised: 97000,
+            totalGoal: 160000,
+            totalDonationCount: 930,
+            fundingRatio: 61,
+            milestoneVerificationRatio: 57,
+            performanceScore: 64
+        },
+        {
+            name: "Digital Inclusion Hub",
+            city: "Genoa",
+            campaignCount: 4,
+            openCampaignCount: 2,
+            concludedCampaignCount: 2,
+            totalRaised: 88000,
+            totalGoal: 150000,
+            totalDonationCount: 850,
+            fundingRatio: 59,
+            milestoneVerificationRatio: 55,
+            performanceScore: 62
+        },
+        {
+            name: "Care Together Foundation",
+            city: "Palermo",
+            campaignCount: 7,
+            openCampaignCount: 3,
+            concludedCampaignCount: 4,
+            totalRaised: 137000,
+            totalGoal: 260000,
+            totalDonationCount: 1180,
+            fundingRatio: 53,
+            milestoneVerificationRatio: 52,
+            performanceScore: 60
+        },
+        {
+            name: "Culture Forward Association",
+            city: "Verona",
+            campaignCount: 3,
+            openCampaignCount: 1,
+            concludedCampaignCount: 2,
+            totalRaised: 54000,
+            totalGoal: 100000,
+            totalDonationCount: 610,
+            fundingRatio: 54,
+            milestoneVerificationRatio: 50,
+            performanceScore: 58
+        }
+    ];
+
+    const pageSize = 5;
+    let currentPage = 1;
+
+    const sortedData = [...performanceData].sort((a, b) => {
+        if (b.performanceScore !== a.performanceScore) {
+            return b.performanceScore - a.performanceScore;
+        }
+
+        if (b.totalRaised !== a.totalRaised) {
+            return b.totalRaised - a.totalRaised;
+        }
+
+        return b.totalDonationCount - a.totalDonationCount;
+    });
+
+    const tableBody = document.getElementById("rankingTableBody");
+    const paginationInfo = document.getElementById("paginationInfo");
+    const prevPage = document.getElementById("prevPage");
+    const nextPage = document.getElementById("nextPage");
+    const pageOne = document.getElementById("pageOne");
+    const pageTwo = document.getElementById("pageTwo");
+    const pageThree = document.getElementById("pageThree");
+
+    function formatEuro(value) {
+        return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "EUR",
+            maximumFractionDigits: 0
+        }).format(value);
+    }
+
+    function getScoreClass(score) {
+        if (score >= 85) return "score-high";
+        if (score >= 65) return "score-medium";
+        return "score-low";
+    }
+
+    function renderTable() {
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        const pageItems = sortedData.slice(start, end);
+
+        tableBody.innerHTML = pageItems.map((item, index) => {
+            const rank = start + index + 1;
+
+            return `
+                <tr>
+                    <td data-label="Name">
+                        <div class="entity-name">
+                            <strong>${rank}. ${item.name}</strong>
+                        </div>
+                    </td>
+                    <td data-label="City">${item.city}</td>
+                    <td data-label="Campaign Count" class="metric-strong">${item.campaignCount}</td>
+                    <td data-label="Open Campaign Count" class="metric-strong">${item.openCampaignCount}</td>
+                    <td data-label="Concluded Campaign Count" class="metric-strong">${item.concludedCampaignCount}</td>
+                    <td data-label="Total Raised" class="metric-strong">${formatEuro(item.totalRaised)}</td>
+                    <td data-label="Total Goal">${formatEuro(item.totalGoal)}</td>
+                    <td data-label="Total Donation Count" class="metric-strong">${item.totalDonationCount.toLocaleString("en-US")}</td>
+                    <td data-label="Funding Ratio">
+                        <span class="ratio-pill">${item.fundingRatio}%</span>
+                    </td>
+                    <td data-label="Milestone Verification Ratio">
+                        <span class="ratio-pill">${item.milestoneVerificationRatio}%</span>
+                    </td>
+                    <td data-label="Performance Score">
+                        <span class="score-pill ${getScoreClass(item.performanceScore)}">${item.performanceScore}</span>
+                    </td>
+                </tr>
+            `;
+        }).join("");
+
+        const totalPages = Math.ceil(sortedData.length / pageSize);
+        paginationInfo.textContent = `Page ${currentPage} of ${totalPages} · ${sortedData.length} records`;
+
+        prevPage.disabled = currentPage === 1;
+        nextPage.disabled = currentPage === totalPages;
+
+        pageOne.classList.toggle("button-primary", currentPage === 1);
+        pageOne.classList.toggle("button-secondary", currentPage !== 1);
+
+        pageTwo.classList.toggle("button-primary", currentPage === 2);
+        pageTwo.classList.toggle("button-secondary", currentPage !== 2);
+
+        pageThree.classList.toggle("button-primary", currentPage === 3);
+        pageThree.classList.toggle("button-secondary", currentPage !== 3);
+    }
+
+    prevPage.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage -= 1;
+            renderTable();
+        }
+    });
+
+    nextPage.addEventListener("click", () => {
+        const totalPages = Math.ceil(sortedData.length / pageSize);
+
+        if (currentPage < totalPages) {
+            currentPage += 1;
+            renderTable();
+        }
+    });
+
+    pageOne.addEventListener("click", () => {
+        currentPage = 1;
+        renderTable();
+    });
+
+    pageTwo.addEventListener("click", () => {
+        currentPage = 2;
+        renderTable();
+    });
+
+    pageThree.addEventListener("click", () => {
+        currentPage = 3;
+        renderTable();
+    });
+
+    renderTable();
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>

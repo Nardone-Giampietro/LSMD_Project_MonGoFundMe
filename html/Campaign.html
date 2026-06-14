@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonGoFundMe - Campaign Detail</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="page-campaign">
+<aside class="role-switcher" aria-label="View selector">
+  <div class="role-switcher-title">View as</div>
+  <div class="role-switcher-options">
+    <a href="Home.html?view=guest" data-view="guest">Not logged</a>
+    <a href="Home.html?view=donor" data-view="donor">Donor</a>
+    <a href="Home.html?view=entity" data-view="entity">Organization</a>
+    <a href="Home.html?view=admin" data-view="admin">Admin</a>
+  </div>
+</aside>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="Home.html" aria-label="MonGoFundMe home">
+      <div class="brand-mark">M</div>
+      <div>MonGoFundMe</div>
+    </a>
+
+    <nav class="nav-main" aria-label="Main navigation">
+      <a href="Home.html">Home</a>
+      <a href="Search.html">Search</a>
+      <a href="Campaign.html" class="active">Campaign</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="DonorDashboard.html" id="dashboardButton" class="button button-secondary hidden">Dashboard</a>
+      <a href="CampaingRegister.html" id="createCampaignButton" class="button button-primary hidden">Create Campaign</a>
+      <a href="Login.html" id="loginButton" class="button button-ghost">Log In</a>
+      <a href="Signup.html" id="signupButton" class="button button-primary">Sign Up</a>
+    </div>
+  </div>
+</header>
+
+<main class="container page">
+  <section class="campaign-hero">
+    <div class="hero-grid">
+      <div class="hero-image">
+        <div class="hero-badges">
+          <span class="badge badge-blue">Open campaign</span>
+          <span class="badge badge-dark">12 days left</span>
+          <span class="badge badge-green">Milestone 2 active</span>
+        </div>
+
+        <div class="hero-copy">
+          <h1>Mobile STEM Lab for Underserved Schools</h1>
+          <div class="entity-line">
+            Organization: <a href="Search.html">EduSpark Association</a> · Location: Pisa, Tuscany
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag">Education</span>
+            <span class="hero-tag">STEM</span>
+            <span class="hero-tag">Youth</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="summary-panel">
+        <div>
+          <h2>Fundraising status</h2>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-top">
+            <strong>€ 18,500</strong>
+            <span>of € 25,000 goal · 74%</span>
+          </div>
+          <div class="progress-bar" aria-label="74 percent completed">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="kpi-row">
+          <div class="kpi">
+            <strong>236</strong>
+            <span>total supporters</span>
+          </div>
+          <div class="kpi">
+            <strong>12</strong>
+            <span>days left</span>
+          </div>
+          <div class="kpi">
+            <strong>€ 7,500</strong>
+            <span>remaining to reach the goal</span>
+          </div>
+          <div class="kpi">
+            <strong>3</strong>
+            <span>active rewards</span>
+          </div>
+        </div>
+        <div class="action-stack">
+          <a href="Donation.html" class="button button-primary">Proceed to donation</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="content-grid">
+    <div class="main-column">
+      <section class="card">
+        <h3>Full description</h3>
+        <p>
+          The campaign funds a mobile STEM laboratory intended for underserved schools with more limited access to
+          technological equipment. The project includes the purchase of robotics kits, educational notebooks, and
+          teaching materials for mobile sessions led by tutors. The goal is to increase accessibility to practical
+          experiences in science, coding, and making, with particular attention to vulnerable school environments.
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>Campaign updates</h3>
+        <div class="update-list">
+          <article class="update-item">
+            <div class="update-top">
+              <strong>Laboratory van setup has started</strong>
+              <span class="meta-pill">April 18, 2026</span>
+            </div>
+            <div class="update-meta">
+              The organization confirmed the purchase order for the internal workstations, technical cabinets, and
+              safety equipment needed to prepare the mobile laboratory van.
+            </div>
+          </article>
+
+          <article class="update-item">
+            <div class="update-top">
+              <strong>First educational kits delivered</strong>
+              <span class="meta-pill">April 4, 2026</span>
+            </div>
+            <div class="update-meta">
+              The first robotics kits and entry-level 3D printers were delivered to EduSpark Association and will be
+              used during the pilot sessions with partner schools.
+            </div>
+          </article>
+
+          <article class="update-item">
+            <div class="update-top">
+              <strong>Partner schools selected</strong>
+              <span class="meta-pill">March 22, 2026</span>
+            </div>
+            <div class="update-meta">
+              Five schools in the Pisa area were selected for the initial program. The organization is coordinating
+              tutor schedules and classroom availability.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Campaign milestones</h3>
+        <div class="milestone-list">
+          <article class="milestone-item">
+            <div class="milestone-top">
+              <strong>Milestone 1 · Purchase of the first set of educational kits</strong>
+              <span class="meta-pill">Verified</span>
+            </div>
+            <div class="milestone-meta">
+              Description: purchase of 10 basic educational robotics kits and 2 entry-level 3D printers.<br />
+              Minimum amount required: € 8,000<br />
+              Verification deadline: March 12, 2026
+            </div>
+          </article>
+
+          <article class="milestone-item">
+            <div class="milestone-top">
+              <strong>Milestone 2 · Setup of the laboratory van</strong>
+              <span class="meta-pill">Pending</span>
+            </div>
+            <div class="milestone-meta">
+              Description: vehicle upgrade, installation of technical cabinets, and mobile workstations.<br />
+              Minimum amount required: € 15,000<br />
+              Verification deadline: April 28, 2026
+            </div>
+          </article>
+
+          <article class="milestone-item">
+            <div class="milestone-top">
+              <strong>Milestone 3 · Launch of the program in 5 schools</strong>
+              <span class="meta-pill">Pending</span>
+            </div>
+            <div class="milestone-meta">
+              Description: launch of the first local activities, tutor training, and intervention schedule.<br />
+              Minimum amount required: € 25,000<br />
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="side-column">
+      <section class="card">
+        <h3>Latest donors</h3>
+        <div class="donor-list">
+          <div class="donor-item">
+            <strong>Giulia B.</strong>
+            <span>Donation: € 150 · 2 hours ago</span>
+          </div>
+          <div class="donor-item">
+            <strong>Luca N.</strong>
+            <span>Donation: € 50 · 5 hours ago</span>
+          </div>
+          <div class="donor-item">
+            <strong>Elena R.</strong>
+            <span>Donation: € 25 · yesterday</span>
+          </div>
+          <div class="donor-item">
+            <strong>Marco T.</strong>
+            <span>Donation: € 75 · yesterday</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Available rewards</h3>
+        <div class="reward-list">
+          <article class="reward-item">
+            <div class="reward-top">
+              <strong>Digital Supporter</strong>
+              <span class="meta-pill">€ 25</span>
+            </div>
+            <div class="reward-meta">
+              Description: personalized thank-you by email and digital project badge.
+            </div>
+          </article>
+
+          <article class="reward-item">
+            <div class="reward-top">
+              <strong>Supporter Kit</strong>
+              <span class="meta-pill">€ 75</span>
+            </div>
+            <div class="reward-meta">
+              Description: campaign tote bag, STEM stickers, and mention on the supporters page.
+            </div>
+          </article>
+
+          <article class="reward-item">
+            <div class="reward-top">
+              <strong>Opening Event Invitation</strong>
+              <span class="meta-pill">€ 150</span>
+            </div>
+            <div class="reward-meta">
+              Description: access to the mobile laboratory presentation event and guided tour.
+            </div>
+          </article>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<script>
+  const stateButtons = document.querySelectorAll('.state-button');
+  const loginButton = document.getElementById('loginButton');
+  const signupButton = document.getElementById('signupButton');
+  const dashboardButton = document.getElementById('dashboardButton');
+  const createCampaignButton = document.getElementById('createCampaignButton');
+  const likeButton = document.getElementById('likeButton');
+  const likeCounterValue = document.getElementById('likeCounterValue');
+  const guestNotice = document.getElementById('guestNotice');
+  const loggedNotice = document.getElementById('loggedNotice');
+  const commentFormWrapper = document.getElementById('commentFormWrapper');
+
+  let hasLiked = false;
+
+  function setUserState(state) {
+    stateButtons.forEach((button) => {
+      button.classList.toggle('active', button.dataset.state === state);
+    });
+
+    const isGuest = state === 'guest';
+    const isEntity = state === 'entity';
+    const isAdmin = state === 'admin';
+    const isLogged = state === 'donor' || state === 'entity' || isAdmin;
+
+    loginButton.classList.toggle('hidden', !isGuest);
+    signupButton.classList.toggle('hidden', !isGuest);
+    dashboardButton.classList.toggle('hidden', !isLogged);
+    createCampaignButton.classList.toggle('hidden', !isEntity);
+    dashboardButton.href = isAdmin ? 'AdminDashboard.html' : (isEntity ? 'OrganizationDashboard.html' : 'DonorDashboard.html');
+    dashboardButton.textContent = isAdmin ? 'Admin Dashboard' : (isEntity ? 'Organization Dashboard' : 'Donor Dashboard');
+
+    if (likeButton) likeButton.classList.toggle('hidden', !isLogged);
+
+    if (guestNotice) guestNotice.classList.toggle('hidden', !isGuest);
+    if (loggedNotice) loggedNotice.classList.toggle('hidden', isGuest);
+    if (commentFormWrapper) commentFormWrapper.classList.toggle('hidden', !isLogged);
+  }
+
+  stateButtons.forEach((button) => {
+    button.addEventListener('click', () => setUserState(button.dataset.state));
+  });
+
+  if (likeButton && likeCounterValue) {
+    likeButton.addEventListener('click', () => {
+      let currentLikes = parseInt(likeCounterValue.textContent, 10);
+
+      if (!hasLiked) {
+        currentLikes += 1;
+        hasLiked = true;
+        likeButton.textContent = 'Like added';
+        likeButton.classList.remove('button-secondary');
+        likeButton.classList.add('button-primary');
+      } else {
+        currentLikes -= 1;
+        hasLiked = false;
+        likeButton.textContent = 'Leave a Like';
+        likeButton.classList.remove('button-primary');
+        likeButton.classList.add('button-secondary');
+      }
+
+      likeCounterValue.textContent = currentLikes;
+    });
+  }
+
+  setUserState('guest');
+</script>
+<script>
+  (function () {
+    const storageKey = 'mongofundme-view';
+    const validViews = ['guest', 'donor', 'entity', 'admin'];
+    const aliases = {
+      guest: 'guest',
+      visitor: 'guest',
+      donor: 'donor',
+      entity: 'entity',
+      organization: 'entity',
+      organisation: 'entity',
+      admin: 'admin',
+      administrator: 'admin'
+    };
+
+    function normalizeView(value) {
+      return aliases[String(value || '').toLowerCase()] || '';
+    }
+
+    function inferViewFromPath(pathname) {
+      const page = pathname.split('/').pop() || '';
+      if (page.startsWith('Admin')) return 'admin';
+      if (page.startsWith('Donor') || page === 'Donation.html' || page === 'SuggestedCampaigns.html') return 'donor';
+      if (page.startsWith('Organization') || page.startsWith('Campaing') || page === 'CampaignManage.html' || page === 'CampaignsList.html') return 'entity';
+      return '';
+    }
+
+    const requestedView = normalizeView(new URLSearchParams(window.location.search).get('view'));
+    const inferredView = inferViewFromPath(window.location.pathname);
+    const storedView = normalizeView(window.localStorage.getItem(storageKey));
+    const currentView = requestedView || inferredView || storedView || 'guest';
+
+    if (validViews.includes(currentView)) {
+      window.localStorage.setItem(storageKey, currentView);
+    }
+
+    document.querySelectorAll('.role-switcher [data-view]').forEach((link) => {
+      const isActive = link.dataset.view === currentView;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+
+      link.addEventListener('click', () => {
+        window.localStorage.setItem(storageKey, link.dataset.view);
+      });
+    });
+
+    if (typeof window.setUserState === 'function') {
+      window.setUserState(currentView);
+    }
+  })();
+</script>
+
+</body>
+</html>
