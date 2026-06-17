@@ -33,7 +33,7 @@ public interface DonationRepository extends MongoRepository<DonationEntity, Stri
             """,
             "{ '$unwind': '$campaign' }",
             "{ '$match': { 'campaign.status': 'OPEN' } }",
-            "{ '$addFields': { 'relevanceScore': { '$add': [ { '$multiply': [ '$uniqueDonorsLast14Days', 3 ] }, { '$multiply': [ { '$ln': { '$add': [ '$amountRaisedLast14Days', 1 ] } }, 2 ] } ] } } }",
+            "{ '$addFields': { 'relevanceScore': { '$add': [ { '$multiply': [ '$uniqueDonorsLast14Days', 3 ] }, " + "{ '$multiply': [ { '$ln': { '$add': [ '$amountRaisedLast14Days', 1 ] } }, 2 ] } ] } } }",
             "{ '$sort': { 'relevanceScore': -1, 'uniqueDonorsLast14Days': -1, 'amountRaisedLast14Days': -1 } }",
             "{ '$project': { '_id': 1 } }",
             "{ '$limit': ?1 }"

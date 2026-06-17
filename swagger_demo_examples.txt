@@ -1,0 +1,575 @@
+Swagger UI demo examples
+========================
+
+Swagger URL:
+http://localhost:8080/swagger-ui/index.html
+
+How to authenticate in Swagger:
+1. Run POST /api/v1/signin with one of the login bodies below.
+2. Copy data.token from the response.
+3. Click Authorize in Swagger UI.
+4. Paste only the token value. Do not write "Bearer"; Swagger adds it.
+
+All seeded accounts use this password:
+password123
+
+
+Useful demo accounts
+--------------------
+
+Donor:
+neil.adams@example.com
+
+Donor with an existing pending reward donation:
+marius.pedersen@example.com
+
+Organization with open campaign:
+roe.network.1996545@indiegogo.local
+
+Organization for SKWHEEL donation examples:
+skwheel.1783532@indiegogo.local
+
+Organization with a pending milestone:
+yeti.ready.1997331@indiegogo.local
+
+Organization with campaign updates:
+jasminenduku.1934385@indiegogo.local
+
+Administrator:
+new.administrator@example.com
+
+
+Public campaign ids
+-------------------
+
+Open campaign with a low reward:
+a91dd3a87fe6ed4a3b36d742
+
+Open campaign owned by ROE Network:
+12c4ec554f7bc0a11c71400f
+
+SKWHEEL concluded campaign:
+bf5c9c057d2dbac9995a9fe2
+
+Open campaign with pending milestone:
+fb973661c3f3fbca7e90a1da
+
+
+1. Sign in as donor
+-------------------
+Endpoint:
+POST /api/v1/signin
+
+Request body:
+
+{
+  "email": "neil.adams@example.com",
+  "password": "password123"
+}
+
+
+2. Sign in as organization
+--------------------------
+Endpoint:
+POST /api/v1/signin
+
+Request body:
+
+{
+  "email": "roe.network.1996545@indiegogo.local",
+  "password": "password123"
+}
+
+
+3. Sign in as administrator
+---------------------------
+Endpoint:
+POST /api/v1/signin
+
+Request body:
+
+{
+  "email": "new.administrator@example.com",
+  "password": "password123"
+}
+
+
+4. Sign up a new donor
+----------------------
+Endpoint:
+POST /api/v1/signup
+
+Request body:
+
+{
+  "email": "demo.donor.20260617@example.com",
+  "password": "password123",
+  "roles": [
+    "ROLE_DONOR"
+  ],
+  "firstName": "Demo",
+  "lastName": "Donor",
+  "city": "Rome",
+  "street": "Via Roma 10",
+  "zip": "00100"
+}
+
+
+5. Sign up a new organization
+-----------------------------
+Endpoint:
+POST /api/v1/signup
+
+Request body:
+
+{
+  "email": "demo.organization.20260617@example.com",
+  "password": "password123",
+  "roles": [
+    "ROLE_ORGANIZATION"
+  ],
+  "legalName": "Demo Organization SRL",
+  "city": "Rome",
+  "street": "Via Milano 20",
+  "zip": "00100"
+}
+
+
+6. Search campaigns
+-------------------
+Endpoint:
+GET /api/v1/campaign/search
+
+Query parameters:
+
+text:
+film
+
+tag:
+HORROR
+
+status:
+OPEN
+
+order:
+NEWEST
+
+page:
+0
+
+size:
+5
+
+
+7. Homepage campaigns
+---------------------
+Endpoint:
+GET /api/v1/campaign/homepage
+
+No path variables.
+No query parameters.
+No request body.
+
+Note:
+This returns populated data only after the homepage scheduler has run.
+
+
+8. Public campaign page
+-----------------------
+Endpoint:
+GET /api/v1/campaign/{campaignId}
+
+Path variable:
+
+campaignId:
+a91dd3a87fe6ed4a3b36d742
+
+
+9. Donor dashboard
+------------------
+Endpoint:
+GET /api/v1/dashboard/donor
+
+Authenticate as:
+neil.adams@example.com
+
+Query parameters:
+
+page:
+0
+
+size:
+10
+
+
+10. Donor suggested campaigns
+-----------------------------
+Endpoint:
+GET /api/v1/campaign/suggested
+
+Authenticate as:
+neil.adams@example.com
+
+No path variables.
+No query parameters.
+No request body.
+
+
+11. Organization dashboard
+--------------------------
+Endpoint:
+GET /api/v1/dashboard/organization
+
+Authenticate as:
+roe.network.1996545@indiegogo.local
+
+No path variables.
+No query parameters.
+No request body.
+
+
+12. Administrator dashboard
+---------------------------
+Endpoint:
+GET /api/v1/dashboard/administrator
+
+Authenticate as:
+new.administrator@example.com
+
+No path variables.
+No query parameters.
+No request body.
+
+
+13. Create campaign
+-------------------
+Endpoint:
+POST /api/v1/campaign/register
+
+Authenticate as:
+roe.network.1996545@indiegogo.local
+
+Request body:
+
+{
+  "title": "Demo Campaign for Swagger",
+  "objective": 5000.00,
+  "endDate": "2026-12-31T23:59:00",
+  "description": "A demo campaign created from Swagger UI to show the organization campaign workflow.",
+  "thumbnailImageUrl": "https://example.com/demo-campaign.jpg",
+  "tags": [
+    "SOFTWARE",
+    "APPS"
+  ],
+  "milestones": [
+    {
+      "title": "First demo milestone",
+      "targetAmount": 1000.00
+    },
+    {
+      "title": "Second demo milestone",
+      "targetAmount": 3000.00
+    }
+  ],
+  "rewards": [
+    {
+      "title": "Demo supporter reward",
+      "description": "A simple reward for demo donors.",
+      "amount": 25.00
+    }
+  ]
+}
+
+Note:
+The response data is the new campaign id. You can use it in the organization
+campaign detail endpoint.
+
+
+14. Organization campaign detail
+--------------------------------
+Endpoint:
+GET /api/v1/campaign/organization/{campaignId}
+
+Authenticate as:
+roe.network.1996545@indiegogo.local
+
+Path variable:
+
+campaignId:
+12c4ec554f7bc0a11c71400f
+
+
+15. Add campaign update
+-----------------------
+Endpoint:
+POST /api/v1/campaign/update/{campaignId}
+
+Authenticate as:
+roe.network.1996545@indiegogo.local
+
+Path variable:
+
+campaignId:
+12c4ec554f7bc0a11c71400f
+
+Request body:
+
+{
+  "title": "Demo update from Swagger",
+  "description": "This update was added during the Swagger UI demo."
+}
+
+
+16. Delete campaign update
+--------------------------
+Endpoint:
+DELETE /api/v1/campaign/{campaignId}/update/{updateId}
+
+Authenticate as:
+jasminenduku.1934385@indiegogo.local
+
+Path variables:
+
+campaignId:
+a91dd3a87fe6ed4a3b36d742
+
+updateId:
+a91dd3a87fe6ed4a3b36d742_update_1
+
+Warning:
+This modifies the seed data by deleting an existing update.
+
+
+17. Verify campaign milestone
+-----------------------------
+Endpoint:
+POST /api/v1/campaign/milestone/verify
+
+Authenticate as:
+yeti.ready.1997331@indiegogo.local
+
+Query parameters:
+
+campaignId:
+fb973661c3f3fbca7e90a1da
+
+milestoneId:
+fb973661c3f3fbca7e90a1da_milestone_1
+
+Warning:
+This modifies the seed data by marking the milestone as verified.
+
+
+18. Create donation without reward
+----------------------------------
+Endpoint:
+POST /api/v1/donation
+
+Authenticate as:
+neil.adams@example.com
+
+Request body:
+
+{
+  "campaignId": "a91dd3a87fe6ed4a3b36d742",
+  "amount": 10.00
+}
+
+
+19. Create donation with reward
+-------------------------------
+Endpoint:
+POST /api/v1/donation
+
+Authenticate as:
+neil.adams@example.com
+
+Request body:
+
+{
+  "campaignId": "a91dd3a87fe6ed4a3b36d742",
+  "amount": 25.00,
+  "rewardId": "a91dd3a87fe6ed4a3b36d742_reward_1"
+}
+
+Note:
+The response data is the new donation id. You can use it in the donor donation
+detail endpoint or conclude it if it has a reward.
+
+
+20. Donor donation detail
+-------------------------
+Endpoint:
+GET /api/v1/donation/{donationId}
+
+Authenticate as:
+neil.adams@example.com
+
+Path variable:
+
+donationId:
+b04566e012f381c7cd315a91
+
+
+21. Conclude pending reward donation
+------------------------------------
+Endpoint:
+PATCH /api/v1/donation/{donationId}/conclude
+
+Authenticate as:
+marius.pedersen@example.com
+
+Path variable:
+
+donationId:
+a58114cb49b7b3559bc7764d
+
+Warning:
+This modifies the seed data by moving the pending reward donation to concluded.
+
+
+22. Organization donation detail
+--------------------------------
+Endpoint:
+GET /api/v1/donation/organization/{donationId}
+
+Authenticate as:
+skwheel.1783532@indiegogo.local
+
+Path variable:
+
+donationId:
+cd601a04017fbbb9d64b0b8e
+
+
+23. Campaign pending rewards
+----------------------------
+Endpoint:
+GET /api/v1/donation/campaign/{campaignId}/pending-rewards
+
+Authenticate as:
+skwheel.1783532@indiegogo.local
+
+Path variable:
+
+campaignId:
+bf5c9c057d2dbac9995a9fe2
+
+Query parameters:
+
+page:
+0
+
+size:
+10
+
+
+24. Campaign concluded donations
+--------------------------------
+Endpoint:
+GET /api/v1/donation/campaign/{campaignId}/concluded
+
+Authenticate as:
+skwheel.1783532@indiegogo.local
+
+Path variable:
+
+campaignId:
+bf5c9c057d2dbac9995a9fe2
+
+Query parameters:
+
+page:
+0
+
+size:
+10
+
+
+25. Organization closed or concluded campaigns
+----------------------------------------------
+Endpoint:
+GET /api/v1/campaign/organization/closed-or-concluded
+
+Authenticate as:
+skwheel.1783532@indiegogo.local
+
+Query parameters:
+
+page:
+0
+
+size:
+10
+
+
+26. Organization performance ranking
+------------------------------------
+Endpoint:
+GET /api/v1/campaign/admin/organization-performance-ranking
+
+Authenticate as:
+new.administrator@example.com
+
+Query parameters:
+
+skip:
+0
+
+limit:
+10
+
+Note:
+This returns populated data only after the admin ranking scheduler has run.
+
+
+27. Organization pending reward aging ranking
+---------------------------------------------
+Endpoint:
+GET /api/v1/campaign/admin/organization-pending-reward-aging-ranking
+
+Authenticate as:
+new.administrator@example.com
+
+Query parameters:
+
+skip:
+0
+
+limit:
+10
+
+Note:
+This returns populated data only after the admin ranking scheduler has run.
+
+
+28. Recent exclusive donor campaigns
+------------------------------------
+Endpoint:
+GET /api/v1/campaign/admin/recent-exclusive-donor-campaigns
+
+Authenticate as:
+new.administrator@example.com
+
+Query parameter:
+
+limit:
+10
+
+
+29. Suspend organization
+------------------------
+Endpoint:
+PATCH /api/v1/admin/organization/{organizationId}/suspend
+
+Authenticate as:
+new.administrator@example.com
+
+Path variable:
+
+organizationId:
+organization_8dd75a2ffc87fb1e
+
+Warning:
+This modifies the seed data by suspending the organization and closing its open
+campaigns. Restore the database after the demo if you use this endpoint.

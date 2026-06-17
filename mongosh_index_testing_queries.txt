@@ -1,0 +1,161 @@
+Campaign search by status, ordered by creation date
+------------------------------------------------------
+
+db.campaign.find(
+  { status: "OPEN" },
+  {
+    title: 1,
+    thumbnailImageUrl: 1,
+    tags: 1,
+    status: 1,
+    goalAmount: 1,
+    raisedAmount: 1,
+    startDate: 1,
+    endDate: 1,
+    organizationName: 1,
+    organizationCity: 1
+  }
+).sort({
+  createdAt: -1
+}).limit(20).explain("executionStats")
+
+
+Campaign search by tag and status, ordered by creation date
+--------------------------------------------------------------
+
+db.campaign.find(
+  {
+    tags: "SHORT_FILM",
+    status: "CONCLUDED"
+  },
+  {
+    title: 1,
+    thumbnailImageUrl: 1,
+    tags: 1,
+    status: 1,
+    goalAmount: 1,
+    raisedAmount: 1,
+    startDate: 1,
+    endDate: 1,
+    organizationName: 1,
+    organizationCity: 1
+  }
+).sort({
+  createdAt: -1
+}).limit(20).explain("executionStats")
+
+
+Campaign text search
+-----------------------
+
+db.campaign.find(
+  { $text: { $search: "film" } },
+  {
+    score: { $meta: "textScore" },
+    title: 1,
+    description: 1,
+    thumbnailImageUrl: 1,
+    tags: 1,
+    status: 1
+  }
+).sort({
+  score: { $meta: "textScore" }
+}).limit(20).explain("executionStats")
+
+
+Recent donations for homepage recommendations
+------------------------------------------------
+
+db.donation.find({
+  donatedAt: {
+    $gte: ISODate("2026-01-01T00:00:00Z")
+  }
+}).limit(100).explain("executionStats")
+
+
+Homepage recommendation aggregation
+--------------------------------------
+
+db.donation.explain("executionStats").aggregate([
+  {
+    $match: {
+      donatedAt: {
+        $gte: ISODate("2026-01-01T00:00:00Z")
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$campaignId",
+      uniqueDonorIds: { $addToSet: "$donorId" },
+      amountRaisedLast14Days: { $sum: "$amount" }
+    }
+  },
+  {
+    $addFields: {
+      uniqueDonorsLast14Days: { $size: "$uniqueDonorIds" }
+    }
+  },
+  {
+    $lookup: {
+      from: "campaign",
+      localField: "_id",
+      foreignField: "_id",
+      as: "campaign"
+    }
+  },
+  { $unwind: "$campaign" },
+  { $match: { "campaign.status": "OPEN" } },
+  {
+    $addFields: {
+      relevanceScore: {
+        $add: [
+          { $multiply: [ "$uniqueDonorsLast14Days", 3 ] },
+          { $multiply: [ { $ln: { $add: [ "$amountRaisedLast14Days", 1 ] } }, 2 ] }
+        ]
+      }
+    }
+  },
+  {
+    $sort: {
+      relevanceScore: -1,
+      uniqueDonorsLast14Days: -1,
+      amountRaisedLast14Days: -1
+    }
+  },
+  { $project: { _id: 1 } },
+  { $limit: 20 }
+])
+
+
+Outbox pending events processing
+-----------------------------------
+
+db.outbox_event.find({
+  status: "PENDING",
+  eventType: {
+    $in: [
+      "DONOR_CREATED",
+      "ORGANIZATION_CREATED",
+      "ORGANIZATION_SUSPENDED",
+      "CAMPAIGN_CREATED",
+      "DONATION_CREATED_GRAPH",
+      "CAMPAIGN_STATUS_CHANGED"
+    ]
+  }
+}).sort({
+  createdAt: 1
+}).limit(100).explain("executionStats")
+
+
+Outbox cleanup candidate query
+----------------------------------
+
+db.outbox_event.find({
+  status: "PROCESSED",
+  processedAt: {
+    $lt: ISODate("2026-01-01T00:00:00Z")
+  }
+}).limit(100).explain("executionStats")
+
+

@@ -10,6 +10,25 @@ MonGoFundMe is a Spring Boot application for managing crowdfunding campaigns, do
 - JWT-based stateless authentication
 - Swagger UI for REST API exploration
 
+## Documentation and Visuals
+
+- Project documentation: [MonGoFundMe_DOCUMENTATION.pdf](MonGoFundMe_DOCUMENTATION.pdf)
+- Static HTML pages: [`html/`](html/)
+
+### UML Diagram
+
+![Class UML diagram](Class_UML_Diagram.svg)
+
+### Neo4j Graph Structure
+
+![Neo4j graph structure](docs/neo4j-graph-structure.png)
+
+### Static HTML Preview
+
+Sample screenshot from [`html/Home.html`](html/Home.html):
+
+![MonGoFundMe static HTML home page](docs/static-html-home.jpg)
+
 ## MongoDB
 
 The application expects a MongoDB replica set named `rs0` with three reachable members:
